@@ -1,0 +1,31 @@
+.errorContainer {
+  display: flex;
+  justify-content:  center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000; 
+  color: white;
+  margin: 0;
+}
+.errorCard {
+  text-align: center;
+}
+.errorTitle {
+  font-size: 3rem;
+  color: #5A1D60; 
+}
+.errorMessages {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.goHomeBtn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 10px 20px;
+  background-color: #5A1D60; 
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}

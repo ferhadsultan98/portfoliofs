@@ -1,0 +1,81 @@
+[
+  {
+    "id": 1,
+    "title": "HR Team",
+    "description": "HR Team is a modern platform that streamlines human resources processes. It optimizes recruitment, employee management, and performance evaluations.",
+    "coverName": "HR TEAM",
+    "tags": [
+      "HTML/CSS",
+      "Git",
+      "API Integration",
+      "Material UI",
+      "React",
+      "JavaScript",
+      "Responsive design"
+    ],
+    "githubLink": "https://github.com/ferhadsultan98/hrteamupdated2024"
+  },
+  {
+    "id": 2,
+    "title": "Varsity University",
+    "description": "Varsity University is a vibrant institution focused on academic excellence and innovation. It offers diverse programs and fosters a supportive community, preparing students for successful careers.",
+    "coverName": "Varsity University",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "API Integration",
+      "Material UI",
+      "Chakra UI",
+      "Bootstrap",
+      "Slick Slider React",
+      "Responsive design",
+      "Git",
+      "Vercel",
+      "Netlify"
+    ],
+    "githubLink": "https://github.com/ferhadsultan98/myfinallyproject"
+  },
+  {
+    "id": 3,
+    "title": "Varsity University",
+    "description": "Varsity University is a vibrant institution focused on academic excellence and innovation. It offers diverse programs and fosters a supportive community, preparing students for successful careers.",
+    "coverName": "Varsity University",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "API Integration",
+      "Material UI",
+      "Chakra UI",
+      "Bootstrap",
+      "Slick Slider React",
+      "Responsive design",
+      "Git",
+      "Vercel",
+      "Netlify"
+    ],
+    "githubLink": "https://github.com/ferhadsultan98/myfinallyproject"
+  },
+  {
+    "id": 4,
+    "title": "Varsity University",
+    "description": "Varsity University is a vibrant institution focused on academic excellence and innovation. It offers diverse programs and fosters a supportive community, preparing students for successful careers.",
+    "coverName": "Varsity University",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "API Integration",
+      "Material UI",
+      "Chakra UI",
+      "Bootstrap",
+      "Slick Slider React",
+      "Responsive design",
+      "Git",
+      "Vercel",
+      "Netlify"
+    ],
+    "githubLink": "https://github.com/ferhadsultan98/myfinallyproject"
+  }
+]
