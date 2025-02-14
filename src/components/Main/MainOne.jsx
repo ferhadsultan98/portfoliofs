@@ -5,7 +5,7 @@ import FarhaddJPG from "../../assets/ProfileImage.jpeg";
 import Projects from "../Projects/Projects";
 import AboutSection from "../About/About";
 import { FaDownload } from "react-icons/fa";
-import backGround from '../../assets/backGround.webp'
+import backGround from "../../assets/backGround.webp";
 
 const MainOne = () => {
   const projectsRef = useRef(null);
@@ -44,8 +44,11 @@ const MainOne = () => {
       projectsRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-
+  const hrefHandler = (e) => {
+    e.preventDefault()
+    window.open("https://drive.usercontent.google.com/u/0/uc?id=1gSe7ubc4RmjlAA47F6RfIQUsCvlAkHdn&export=download", "_blank");
+  };
+  
   return (
     <div className="CommonMenu" id="home">
       <img src={backGround} alt="backGroundIMG" className="backGround" />
@@ -53,7 +56,7 @@ const MainOne = () => {
         <div className="left">
           <div className="hi">
             <h1>Hi, I am Farhad!</h1>
-            <FaRegHandPeace  style={{color: '#5A1D60', fontSize: '35px'}}/>
+            <FaRegHandPeace style={{ color: "#5A1D60", fontSize: "35px" }} />
           </div>
           <div className="frontend">
             <div className="up">
@@ -68,15 +71,9 @@ const MainOne = () => {
             </p>
           </div>
           <div className="buttons">
-            <a href="https://drive.usercontent.google.com/u/0/uc?id=1gSe7ubc4RmjlAA47F6RfIQUsCvlAkHdn&export=download">
-              <button className="downloadbutton" type="button">
+              <button className="downloadButton" onClick={hrefHandler}> 
                 <span className="downloadbutton__text">Download CV</span>
-                <span className="downloadbutton__icon">
-                  <FaDownload className="svg" />
-                </span>
               </button>
-            </a>
-
             <button className="ProjectButtonn" onClick={scrollToProjects}>
               <span className="ProjectButtonn-content">Projects</span>
             </button>

@@ -1,0 +1,157 @@
+/* Login Section */
+.loginContainer {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+}
+
+.loginLeftSection {
+  width: 60%;
+  background-color: #5a1d60;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.877), #5a1d60);
+  position: relative;
+}
+.logLeftSecImg {
+  position: absolute;
+}
+.logLeftSecImg img {
+  width: 25vw;
+}
+.loginCard {
+  flex: 1;
+  padding: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  margin: auto;
+}
+.logHeader {
+  border: 1px solid #f2f2f2;
+  padding: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 6px;
+}
+.logHeader h1 {
+  font-size: 6rem;
+  color: white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.loginCard .logSection,
+.loginCard .passSection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.loginCard input {
+  width: 30vw;
+  height: 8vh;
+  padding: 12px 55px;
+  border: none;
+  font-size: 1.3rem;
+  color: gray;
+  background-color: #f2f2f2;
+  border-left: 3px solid #5a1d60;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.loginCard input::placeholder {
+  color: gray;
+}
+.loginCard input:focus {
+  border-color: #5a1d60;
+  outline: none;
+}
+.loginCard .eyeIcon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  background: transparent;
+  border: none;
+  color: gray;
+}
+.loginCard .eyeIcon:hover {
+  color: red;
+}
+.loginCard .userIcon,
+.loginCard .lockIcon {
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  font-size: 25px;
+  transform: translateY(-50%);
+  color: white;
+  background-color: #5a1d60;
+  width: 3vw;
+  height: 100%;
+  padding: 14px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#logIn {
+  background-color: #5a1d60;
+  color: white;
+  padding: 12px 15px;
+  align-self: flex-end;
+  margin-right: 45px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#logIn:hover {
+  background-color: #4c1451;
+}
+.notificationText {
+  animation: smoothDown 0.3s, ;
+}
+
+@keyframes smoothDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .loginContainer {
+    flex-direction: column;
+  }
+
+  .loginLeftSection {
+    display: none;
+  }
+
+  .loginCard {
+    width: 100%;
+    padding: 20px;
+  }
+  .loginCard .userIcon,
+.loginCard .lockIcon{
+  font-size: 2rem;
+}
+}

@@ -25,3 +25,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #5A1D60;
 }
+.mainLayout{
+  
+  position: absolute;
+  top: 57px;
+  right: 0;
+  width: 85%;
+  background: red;
+  color: white;
+  min-height: 90vh;
+}

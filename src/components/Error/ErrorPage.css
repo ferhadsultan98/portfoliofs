@@ -6,6 +6,7 @@
   background-color: #000000; 
   color: white;
   margin: 0;
+
 }
 .errorCard {
   text-align: center;
@@ -13,6 +14,7 @@
 .errorTitle {
   font-size: 3rem;
   color: #5A1D60; 
+  text-align: center;
 }
 .errorMessages {
   font-size: 1.2rem;

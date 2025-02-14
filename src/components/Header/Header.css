@@ -47,7 +47,6 @@ header .logo {
   color: transparent;
   display: flex;
   align-items: center;
-  transition: 1s;
 }
 #myLogo:hover {
   border-right-width: 7px;

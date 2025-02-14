@@ -9,17 +9,19 @@ body {
   background-size: 200% 200%;
   animation: gradientAnim 5s ease infinite;
 }
-.backGround{
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.backGround {
   position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-h1{
-  color: white;
-}
+
 .CommonMenu {
   display: flex;
   flex-direction: column;
@@ -27,9 +29,11 @@ h1{
   justify-content: center;
   position: relative;
   width: 65%;
-  margin: 0 auto;
+  margin: 15vh auto;
 }
-
+.CommonMenu h1 {
+  color: white;
+}
 /* .CommonMenu .theme-toggle {
   position: fixed;
   bottom: 20px;
@@ -41,7 +45,6 @@ h1{
   z-index: 1000;
   color: white;
 } */
-
 
 .CommonMenu .MainOne {
   margin-bottom: 30vh;
@@ -64,10 +67,7 @@ h1{
   margin-bottom: 25vh;
 }
 
-
 /* Main Container */
-
-
 /* Left Section */
 .CommonMenu .left {
   display: flex;
@@ -129,78 +129,51 @@ h1{
 .CommonMenu .buttons {
   display: flex;
   gap: 10px;
-  margin-top: 3vh;
+  padding-top: 15px;
 }
 
-.CommonMenu .buttons a {
-  text-decoration: none;
-}
-
-/* From Uiverse.io by Farhad Sultan */
-.CommonMenu .downloadbutton {
-  position: relative;
-  padding: 0 10px;
-  height: 100%;
+.CommonMenu .buttons button {
+  border-radius: 10px;
   cursor: pointer;
+padding: 10px 20px;
   display: flex;
-  align-items: center;
-  border: 1px solid white;
-  background-color: #6d4cff;
-  overflow: hidden;
-  border-radius: 15px;
-}
-
-.CommonMenu .downloadbutton,
-.CommonMenu .downloadbutton__icon,
-.CommonMenu .downloadbutton__text {
-  transition: all 0.3s;
-}
-
-.CommonMenu .downloadbutton .downloadbutton__text {
-  transform: translateX(0px);
-  color: #fff;
-  font-weight: 800;
-  font-size: 16px;
-}
-
-.CommonMenu .downloadbutton .downloadbutton__icon {
-  position: absolute;
-  transform: translateX(138px);
-  height: 100%;
-  width: 39px;
-  background-color: #6d4cff;
-  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+ 
 }
 
-.CommonMenu .downloadbutton .svg {
-  width: 20px;
-  fill: #fff;
+.CommonMenu .buttons button span{
+  font-size: 1.5rem;
+}
+/* Download Button */
+.CommonMenu .buttons .downloadButton {
+  background: transparent;
+  border: 1px solid #5a1d60;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  z-index: 9;
+  transition: 0.5s;
 }
 
-.CommonMenu .downloadbutton:hover {
-  background: #6d4cff;
-}
+/* .CommonMenu .buttons .downloadButton
+@media (max-width: 768px){
+  .CommonMenu .buttons .downloadButton{
 
-.CommonMenu .downloadbutton:hover .downloadbutton__text {
-  color: transparent;
+  }
+} */
+.CommonMenu .buttons .downloadButton:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
 }
-
-.CommonMenu .downloadbutton:hover .downloadbutton__icon {
-  width: 100px;
-  transform: translateX(-36vw);
-  transform: scale(1.8);
-  text-align: center;
-}
-
 /* Project Button */
 
 .CommonMenu .ProjectButtonn {
   position: relative;
   display: inline-block;
-  padding: 20px;
-  border-radius: 14px;
   overflow: hidden;
   z-index: 1;
   border: 1px solid rgb(221, 218, 218);
@@ -239,13 +212,10 @@ h1{
   height: 256px;
 }
 
-.CommonMenu .ProjectButtonn>.ProjectButtonn-content {
+.CommonMenu .ProjectButtonn .ProjectButtonn-content {
   position: relative;
   z-index: 2;
-  font-size: 18px;
 }
-
-
 
 /* Right Section */
 .CommonMenu .right {
@@ -257,7 +227,7 @@ h1{
   position: relative;
   width: 300px;
   height: 350px;
-  border: 1px solid #5A1D60;
+  border: 1px solid #5a1d60;
   transition: 0.5s;
   border-radius: 7px 200px 200px 7px;
   overflow: hidden;
@@ -266,12 +236,8 @@ h1{
 
 .CommonMenu .myphoto:hover {
   border-radius: 7px 7px 200px 200px;
-  box-shadow: 0 0 5px #5A1D60,
-  0 0 10px #5A1D60,
-  0 0 15px #5A1D60,
-  0 0 20px #5A1D60,
-  0 0 30px #5A1D60,
-  0 0 40px #5A1D60;;
+  box-shadow: 0 0 5px #5a1d60, 0 0 10px #5a1d60, 0 0 15px #5a1d60,
+    0 0 20px #5a1d60, 0 0 30px #5a1d60, 0 0 40px #5a1d60;
 }
 
 .CommonMenu .myphoto img {
@@ -287,7 +253,6 @@ h1{
   filter: brightness(0.8) saturate(1.5) contrast(1.2);
   border-radius: 7px 7px 200px 200px;
 }
-
 
 @media (max-width: 1024px) {
   .CommonMenu {
@@ -347,7 +312,7 @@ h1{
   }
 
   .CommonMenu .buttons button {
-    width: 34vw;
+    width: 30vw;
   }
 
   .CommonMenu .left .info {

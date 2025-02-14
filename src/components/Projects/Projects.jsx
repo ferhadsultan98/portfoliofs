@@ -1,102 +1,140 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { database, ref, get } from '../../firebase/Firebase';  
+import { IoLogoGithub, IoMdCloseCircleOutline } from "react-icons/io";
 import "./Projects.css";
-import projectsData from "./projects.json";
-import { IoLogoGithub, IoMdCloseCircleOutline  } from "react-icons/io";
 
 const Projects = () => {
-  const [cards, setCards] = useState([]);
+  const [cards, setCards] = useState([]); 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState(null);
-  const [isClosing, setIsClosing] = useState(false); // State for tracking closing
+  const [isClosing, setIsClosing] = useState(false);
+  const [consoleMessages, setConsoleMessages] = useState([]); 
+
+  const fetchData = async () => {
+    try {
+      const projectsRef = ref(database, 'cards'); 
+      const snapshot = await get(projectsRef); 
+
+      if (snapshot.exists()) {
+        const data = snapshot.val();  
+
+        const projectList = Object.keys(data).map(key => ({
+          id: key,  
+          coverName: data[key].cardCoverName || '',
+          description: data[key].cardDescription || '',
+          githubLink: data[key].cardGithubLink || '',
+          tags: data[key].cardTags || [],
+          title: data[key].cardTitle || '',
+        }));
+        setCards(projectList);  
+
+        // Konsola verileri ekleyelim
+        setConsoleMessages(prev => [...prev, "Projects data fetched successfully"]);
+      } else {
+        setConsoleMessages(prev => [...prev, "No data available"]);  
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error); 
+      setConsoleMessages(prev => [...prev, `Error fetching data: ${error.message}`]);
+    }
+  };
 
   useEffect(() => {
-    setCards(projectsData);
-    const cardElements = document.querySelectorAll(".card");
-    let delay = 0;
-
-    cardElements.forEach((el) => {
-      el.style.animation =
-        "swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) both";
-      el.style.animationDelay = delay + "s";
-      delay += 0.2;
-    });
-  }, []);
+    fetchData();
+  }, []);  
 
   const openModal = (card) => {
     setModalContent(card);
     setIsModalOpen(true);
-    document.body.style.overflow = "hidden"; // Disable body scroll
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
-    setIsClosing(true); // Set to true to start closing animation
-    document.body.style.overflow = "auto"; // Enable body scroll
-
-    // Set a timeout to actually close the modal after the animation duration
-    setTimeout(() => {
-      setIsModalOpen(false);
-      setIsClosing(false); // Reset closing state
-    }, 500); // Match this duration with the closing animation time (500ms)
+    setIsClosing(true);
+    document.body.style.overflow = "auto";
   };
 
+  useEffect(() => {
+    if (isClosing) {
+      const timer = setTimeout(() => {
+        setIsModalOpen(false);
+        setIsClosing(false);
+      }, 500);
+      return () => clearTimeout(timer); 
+    }
+  }, [isClosing]);
+
   return (
-    <div
-      className="ProjeContainer"
-      id="projects"
-      style={{ paddingTop: "80px" }}
-    >
+    <div className="ProjeContainer" id="projects" style={{ paddingTop: "80px" }}>
       <h1>Projects</h1>
       <hr className="project-separator" />
+      
+
+      {consoleMessages.length > 0 && (
+        <div className="console-output">
+          <h3>Console Output:</h3>
+          {consoleMessages.map((msg, index) => (
+            <div key={index}>{msg}</div>
+          ))}
+        </div>
+      )}
+
       <div className="card-container">
-        {cards.map((card, index) => (
-          <div className="card" key={index} onClick={() => openModal(card)}>
-            <div className="card-main">
-              <h1 alt={`${card.title} Logo`}>{card.coverName}</h1>
-            </div>
-            <div className="card-hover" id="cardInfo">
-              <h3>{card.title}</h3>
-              <p>{card.description}</p>
-              <div className="tags">
-                {card.tags.map((tag, tagIndex) => (
-                  <div className="tag" key={tagIndex}>
-                    {tag}
-                  </div>
-                ))}
+        {cards && cards.length > 0 ? (  
+          cards.map((card, index) => (
+            <div className="card" key={index} onClick={() => openModal(card)}>
+              <div className="cardBackground"></div>
+              <div className="card-main">
+                <h1 alt={`${card.title} Logo`}>{card.coverName}</h1>
               </div>
-              <a
-                href={card.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <IoLogoGithub size={40} color="white" />
-              </a>
+              <div className="card-hover" id="cardInfo">
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+                <div className="tags">
+                  {card.tags && card.tags.length > 0 ? (
+                    card.tags.map((tag, tagIndex) => (
+                      <div className="tag" key={tagIndex}>
+                        {tag}
+                      </div>
+                    ))
+                  ) : (
+                    <div>No tags available</div>
+                  )}
+                </div>
+                <a href={card.githubLink} target="_blank" rel="noopener noreferrer">
+                  <IoLogoGithub size={40} color="white" />
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No projects available</p>
+        )}
       </div>
 
-
-      {isModalOpen && (
+      {isModalOpen && modalContent && (  
         <div className={`modal ${isModalOpen ? "open" : ""} ${isClosing ? "closing" : ""}`}>
           <div className="modal-overlay" onClick={closeModal}></div>
           <div className="modal-content">
             <h2>{modalContent.title}</h2>
             <p>{modalContent.description}</p>
             <div className="tags">
-              {modalContent.tags.map((tag, tagIndex) => (
-                <div className="tag" key={tagIndex}>
-                  {tag}
-                </div>
-              ))}
+              {modalContent.tags && modalContent.tags.length > 0 ? (
+                modalContent.tags.map((tag, tagIndex) => (
+                  <div className="tag" key={tagIndex}>
+                    {tag}
+                  </div>
+                ))
+              ) : (
+                <div>No tags available</div>
+              )}
             </div>
-            <a
-              href={modalContent.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={modalContent.githubLink} target="_blank" rel="noopener noreferrer">
               <IoLogoGithub size={40} color="white" />
             </a>
-            <button className="close-btn" onClick={closeModal}><i><IoMdCloseCircleOutline style={{display: 'flex', fontSize: '24px'}}/></i></button>
+            <button className="close-btn" onClick={closeModal}>
+              <IoMdCloseCircleOutline style={{ fontSize: '24px' }} />
+            </button>
           </div>
         </div>
       )}

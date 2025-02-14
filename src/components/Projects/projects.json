@@ -77,5 +77,26 @@
       "Netlify"
     ],
     "githubLink": "https://github.com/ferhadsultan98/myfinallyproject"
+  },
+  {
+    "id": 4,
+    "title": "Varsity University",
+    "description": "Varsity University is a vibrant institution focused on academic excellence and innovation. It offers diverse programs and fosters a supportive community, preparing students for successful careers.",
+    "coverName": "Varsity University",
+    "tags": [
+      "HTML/CSS",
+      "JavaScript",
+      "React",
+      "API Integration",
+      "Material UI",
+      "Chakra UI",
+      "Bootstrap",
+      "Slick Slider React",
+      "Responsive design",
+      "Git",
+      "Vercel",
+      "Netlify"
+    ],
+    "githubLink": "https://github.com/ferhadsultan98/myfinallyproject"
   }
 ]
