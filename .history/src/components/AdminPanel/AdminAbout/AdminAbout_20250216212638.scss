@@ -20,10 +20,7 @@
       }
     }
   }
-  .flexInputButton{
-    display: flex;
-    align-items: center;
-  }
+
   input {
     width: 300px;
     padding: 10px;
@@ -33,14 +30,9 @@
     font-size: 1rem;
     background: none;
     color: #ccc;
-    outline: none;
-    &:focus{
-      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
-    }
   }
   textarea {
     margin: 10px 0;
-    width: 100%;
     height: 150px;
     font-size: 12px;
     border: 1px solid #5a1d60;
@@ -60,11 +52,9 @@
     margin: 5px 0;
     width: 3vw;
     font-size: 1.5rem;
-   transition: 0.3s;
 
-    &:hover  {
-      color: #5a1d60;
-      transform: scale(1.1);
+    &:hover i {
+      filter: drop-shadow(1px 5x 5px #5a1d60);
     }
   }
   .containerTagItem {

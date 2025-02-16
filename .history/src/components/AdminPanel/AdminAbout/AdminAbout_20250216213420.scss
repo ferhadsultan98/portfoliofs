@@ -20,10 +20,7 @@
       }
     }
   }
-  .flexInputButton{
-    display: flex;
-    align-items: center;
-  }
+
   input {
     width: 300px;
     padding: 10px;
@@ -33,10 +30,6 @@
     font-size: 1rem;
     background: none;
     color: #ccc;
-    outline: none;
-    &:focus{
-      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
-    }
   }
   textarea {
     margin: 10px 0;

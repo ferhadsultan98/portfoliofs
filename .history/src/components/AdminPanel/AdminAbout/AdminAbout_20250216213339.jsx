@@ -137,55 +137,44 @@ const AdminAbout = () => {
         <div className="adminAboutTopLeft">
           <div className="form-group">
             <h2>Common</h2>
-            <label>Header</label>
             <div className="flexInputButton">
-              <input
-                type="text"
-                name="header"
-                value={aboutData.header}
-                onChange={handleChange}
-                disabled={!isEditing.header}
-              />
-              <button
-                onClick={() => {
-                  setIsEditing((prev) => ({ ...prev, header: !prev.header }));
-                  handleSave("header");
-                }}
-              >
-                {isEditing.header ? (
-                  <IoIosSave title="Save" />
-                ) : (
-                  <FiEdit3 title="Edit" />
-                )}
-              </button>
-            </div>
+            <label>Header</label>
+            <input
+              type="text"
+              name="header"
+              value={aboutData.header}
+              onChange={handleChange}
+              disabled={!isEditing.header}
+            />
+            <button
+              onClick={() => {
+                setIsEditing((prev) => ({ ...prev, header: !prev.header }));
+                handleSave("header");
+              }}
+            >
+              {isEditing.header ? <IoIosSave title="Save"/> : <FiEdit3 title="Edit"/>}
+            </button>
           </div>
 
           <div className="form-group">
             <label>Description</label>
-            <div className="flexInputButton">
-              <textarea
-                name="description"
-                value={aboutData.description}
-                onChange={handleChange}
-                disabled={!isEditing.description}
-              />
-              <button
-                onClick={() => {
-                  setIsEditing((prev) => ({
-                    ...prev,
-                    description: !prev.description,
-                  }));
-                  handleSave("description");
-                }}
-              >
-                {isEditing.description ? (
-                  <IoIosSave title="Save" />
-                ) : (
-                  <FiEdit3 title="Edit" />
-                )}
-              </button>
-            </div>
+            <textarea
+              name="description"
+              value={aboutData.description}
+              onChange={handleChange}
+              disabled={!isEditing.description}
+            />
+            <button
+              onClick={() => {
+                setIsEditing((prev) => ({
+                  ...prev,
+                  description: !prev.description,
+                }));
+                handleSave("description");
+              }}
+            >
+              {isEditing.description ? <IoIosSave title="Save"/> : <FiEdit3 title="Edit"/>}
+            </button>
           </div>
         </div>
         <div className="adminAboutTopCenter">
@@ -193,88 +182,77 @@ const AdminAbout = () => {
           <div className="form-group">
             <label>Address</label>
             <div className="flexInputButton">
-              <input
-                type="text"
-                value={aboutData.contact.address}
-                onChange={(e) => handleContactChange(e, "address")}
-                disabled={!isEditing.contact.address}
-              />
-              <button
-                onClick={() => {
-                  setIsEditing((prev) => ({
-                    ...prev,
-                    contact: {
-                      ...prev.contact,
-                      address: !prev.contact.address,
-                    },
-                  }));
-                  handleSave("address");
-                }}
-              >
-                {isEditing.contact.address ? (
-                  <IoIosSave title="Save" />
-                ) : (
-                  <FiEdit3 title="Edit" />
-                )}
-              </button>
+            <input
+              type="text"
+              value={aboutData.contact.address}
+              onChange={(e) => handleContactChange(e, "address")}
+              disabled={!isEditing.contact.address}
+            />
+            <button
+              onClick={() => {
+                setIsEditing((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, address: !prev.contact.address },
+                }));
+                handleSave("address");
+              }}
+            >
+              {isEditing.contact.address ? <IoIosSave title="Save"/> : <FiEdit3 title="Edit"/>}
+            </button>
             </div>
           </div>
 
           <div className="form-group">
             <label>Email</label>
             <div className="flexInputButton">
-              <input
-                type="email"
-                value={aboutData.contact.email}
-                onChange={(e) => handleContactChange(e, "email")}
-                disabled={!isEditing.contact.email}
-              />
-              <button
-                onClick={() => {
-                  setIsEditing((prev) => ({
-                    ...prev,
-                    contact: { ...prev.contact, email: !prev.contact.email },
-                  }));
-                  handleSave("email");
-                }}
-              >
-                {isEditing.contact.email ? (
-                  <IoIosSave title="Save" />
-                ) : (
-                  <FiEdit3 title="Edit" />
-                )}
-              </button>
+            <input
+              type="email"
+              value={aboutData.contact.email}
+              onChange={(e) => handleContactChange(e, "email")}
+              disabled={!isEditing.contact.email}
+            />
+            <button
+              onClick={() => {
+                setIsEditing((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, email: !prev.contact.email },
+                }));
+                handleSave("email");
+              }}
+            >
+              {isEditing.contact.email ? <IoIosSave title="Save"/> : <FiEdit3 title="Edit"/>}
+            </button>
             </div>
           </div>
 
           <div className="form-group">
             <label>Phone</label>
             <div className="flexInputButton">
-              <input
-                type="text"
-                value={aboutData.contact.phone}
-                onChange={(e) => handleContactChange(e, "phone")}
-                disabled={!isEditing.contact.phone}
-              />
-              <button
-                onClick={() => {
-                  setIsEditing((prev) => ({
-                    ...prev,
-                    contact: { ...prev.contact, phone: !prev.contact.phone },
-                  }));
-                  handleSave("phone");
-                }}
-              >
-                {isEditing.contact.phone ? (
-                  <i>
-                    <IoIosSave title="Save" />
-                  </i>
-                ) : (
-                  <i>
-                    <FiEdit3 title="Edit" />
-                  </i>
-                )}
-              </button>
+            <input
+              type="text"
+              value={aboutData.contact.phone}
+              onChange={(e) => handleContactChange(e, "phone")}
+              disabled={!isEditing.contact.phone}
+            />
+            <button
+              onClick={() => {
+                setIsEditing((prev) => ({
+                  ...prev,
+                  contact: { ...prev.contact, phone: !prev.contact.phone },
+                }));
+                handleSave("phone");
+              }}
+            >
+              {isEditing.contact.phone ? (
+                <i>
+                  <IoIosSave title="Save"/>
+                </i>
+              ) : (
+                <i>
+                  <FiEdit3 title="Edit"/>
+                </i>
+              )}
+            </button>
             </div>
           </div>
         </div>
@@ -287,34 +265,34 @@ const AdminAbout = () => {
                   {platform.charAt(0).toUpperCase() + platform.slice(1)}
                 </label>
                 <div className="flexInputButton">
-                  <input
-                    type="url"
-                    value={aboutData.socialLinks[platform]}
-                    onChange={(e) => handleSocialChange(e, platform)}
-                    disabled={!isEditing.socialLinks[platform]}
-                  />
-                  <button
-                    onClick={() => {
-                      setIsEditing((prev) => ({
-                        ...prev,
-                        socialLinks: {
-                          ...prev.socialLinks,
-                          [platform]: !prev.socialLinks[platform],
-                        },
-                      }));
-                      handleSave(platform);
-                    }}
-                  >
-                    {isEditing.socialLinks[platform] ? (
-                      <i>
-                        <IoIosSave title="Save" />
-                      </i>
-                    ) : (
-                      <i>
-                        <FiEdit3 title="Edit" />
-                      </i>
-                    )}
-                  </button>
+                <input
+                  type="url"
+                  value={aboutData.socialLinks[platform]}
+                  onChange={(e) => handleSocialChange(e, platform)}
+                  disabled={!isEditing.socialLinks[platform]}
+                />
+                <button
+                  onClick={() => {
+                    setIsEditing((prev) => ({
+                      ...prev,
+                      socialLinks: {
+                        ...prev.socialLinks,
+                        [platform]: !prev.socialLinks[platform],
+                      },
+                    }));
+                    handleSave(platform);
+                  }}
+                >
+                  {isEditing.socialLinks[platform] ? (
+                    <i>
+                      <IoIosSave title="Save"/>
+                    </i>
+                  ) : (
+                    <i>
+                      <FiEdit3 title="Edit"/>
+                    </i>
+                  )}
+                </button>
                 </div>
               </div>
             ))}
@@ -327,7 +305,7 @@ const AdminAbout = () => {
         <form onSubmit={handleTagAdd}>
           <input type="text" name="tagInput" placeholder="Add new tag" />
           <button type="submit">
-            <IoMdAddCircleOutline title="Add Tag" />
+            <IoMdAddCircleOutline title="Add Tag"/>
           </button>
         </form>
         <div className="containerTagItem">
@@ -345,15 +323,11 @@ const AdminAbout = () => {
                   handleSave("tags");
                 }}
               >
-                {isEditing.tags[index] ? (
-                  <IoIosSave title="Save" />
-                ) : (
-                  <FiEdit3 title="Edit" />
-                )}
+                {isEditing.tags[index] ? <IoIosSave title="Save"/> : <FiEdit3 title="Edit"/>}
               </button>
               <button onClick={() => handleTagDelete(index)}>
                 <i>
-                  <MdDeleteOutline title="Delete" />
+                  <MdDeleteOutline title="Delete"/>
                 </i>
               </button>
             </div>
