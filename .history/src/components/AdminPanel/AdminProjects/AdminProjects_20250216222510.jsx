@@ -144,7 +144,7 @@ function AdminProjects() {
           />
           <label htmlFor="cardGithubLink">Card Github Link</label>
           <input
-            type="url"
+            type="link"
             id="cardGithubLink"
             value={cardGithubLink}
             onChange={(e) => setCardGithubLink(e.target.value)}

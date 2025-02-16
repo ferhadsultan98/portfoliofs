@@ -151,17 +151,15 @@
           list-style-type: none;
           display: flex;
           flex-wrap: wrap;
-          padding: 0;
-          gap: 5px;
+          gap: 1px;
           li {
             border-radius: 12px;
+            padding: 5px;
             font-size: 12px;
             color: #ccc;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            width: 80px;
           }
         }
         p a {

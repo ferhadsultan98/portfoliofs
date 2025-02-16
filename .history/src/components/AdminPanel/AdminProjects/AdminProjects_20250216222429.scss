@@ -152,7 +152,6 @@
           display: flex;
           flex-wrap: wrap;
           padding: 0;
-          gap: 5px;
           li {
             border-radius: 12px;
             font-size: 12px;
@@ -162,6 +161,7 @@
             align-items: center;
             text-align: center;
             width: 80px;
+            gap: 2px;
           }
         }
         p a {

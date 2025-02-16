@@ -9,7 +9,7 @@ import {
 } from "../../../firebase/Firebase";
 import "./AdminProjects.scss";
 import { FaEdit, FaGithub } from "react-icons/fa";
-
+import { FaGithub } from "react-icons/fa";
 
 function AdminProjects() {
   const [cardTitle, setCardTitle] = useState("");
@@ -144,7 +144,7 @@ function AdminProjects() {
           />
           <label htmlFor="cardGithubLink">Card Github Link</label>
           <input
-            type="url"
+            type="text"
             id="cardGithubLink"
             value={cardGithubLink}
             onChange={(e) => setCardGithubLink(e.target.value)}

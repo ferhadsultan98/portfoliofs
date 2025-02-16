@@ -1,21 +1,13 @@
 import { useState, useEffect } from "react";
-import {
-  database,
-  ref,
-  set,
-  get,
-  child,
-  remove,
-} from "../../../firebase/Firebase";
+import { database, ref, set, get, child, remove } from "../../../firebase/Firebase"; 
 import "./AdminProjects.scss";
-import { FaEdit, FaGithub } from "react-icons/fa";
-
+import { FaEdit } from "react-icons/fa";
 
 function AdminProjects() {
   const [cardTitle, setCardTitle] = useState("");
   const [cardDescription, setCardDescription] = useState("");
-  const [cardTags, setCardTags] = useState("");
-  const [tagsArray, setTagsArray] = useState([]);
+  const [cardTags, setCardTags] = useState(""); 
+  const [tagsArray, setTagsArray] = useState([]); 
   const [cardCoverName, setCardCoverName] = useState("");
   const [cardGithubLink, setCardGithubLink] = useState("");
   const [projects, setProjects] = useState([]);
@@ -27,10 +19,7 @@ function AdminProjects() {
       const snapshot = await get(dbRef);
       if (snapshot.exists()) {
         const data = snapshot.val();
-        const projectsArray = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }));
+        const projectsArray = Object.keys(data).map((key) => ({ id: key, ...data[key] }));
         setProjects(projectsArray);
       }
     };
@@ -41,7 +30,7 @@ function AdminProjects() {
   const handleTagAdd = () => {
     if (cardTags && !tagsArray.includes(cardTags)) {
       setTagsArray([...tagsArray, cardTags]);
-      setCardTags("");
+      setCardTags(""); 
     }
   };
 
@@ -51,13 +40,13 @@ function AdminProjects() {
     const newCardData = {
       cardTitle,
       cardDescription,
-      cardTags: tagsArray,
+      cardTags: tagsArray,  
       cardCoverName,
-      cardGithubLink,
+      cardGithubLink
     };
 
     if (editId) {
-      const cardRef = ref(database, "cards/" + editId);
+      const cardRef = ref(database, 'cards/' + editId);
       set(cardRef, newCardData)
         .then(() => {
           alert("Data updated successfully!");
@@ -67,7 +56,7 @@ function AdminProjects() {
           alert("Error updating data: " + error);
         });
     } else {
-      const cardRef = ref(database, "cards/" + new Date().getTime());
+      const cardRef = ref(database, 'cards/' + new Date().getTime());
       set(cardRef, newCardData)
         .then(() => {
           alert("Data pushed to Firebase successfully!");
@@ -87,16 +76,16 @@ function AdminProjects() {
       setTagsArray(card.cardTags);
       setCardCoverName(card.cardCoverName);
       setCardGithubLink(card.cardGithubLink);
-      setEditId(id);
+      setEditId(id); 
     }
   };
 
   const handleDelete = (id) => {
-    const cardRef = ref(database, "cards/" + id);
+    const cardRef = ref(database, 'cards/' + id);
     remove(cardRef)
       .then(() => {
         alert("Data deleted successfully!");
-        setProjects(projects.filter((project) => project.id !== id));
+        setProjects(projects.filter((project) => project.id !== id)); 
       })
       .catch((error) => {
         alert("Error deleting data: " + error);
@@ -116,66 +105,67 @@ function AdminProjects() {
     <div className="adminProjectContainer">
       <form onSubmit={handleSubmit}>
         <div className="adminProjectTopLeft">
-          <label htmlFor="cardTitle">Card title</label>
-          <input
-            type="text"
-            id="cardTitle"
-            value={cardTitle}
-            onChange={(e) => setCardTitle(e.target.value)}
-            required
-            autoComplete="off"
-          />
-          <label htmlFor="cardDescription">Card Description</label>
-          <textarea
-            id="cardDescription"
-            value={cardDescription}
-            onChange={(e) => setCardDescription(e.target.value)}
-            required
-            autoComplete="off"
-          />
-          <label htmlFor="cardCoverName">Card Covername</label>
-          <input
-            type="text"
-            id="cardCoverName"
-            value={cardCoverName}
-            onChange={(e) => setCardCoverName(e.target.value)}
-            required
-            autoComplete="off"
-          />
-          <label htmlFor="cardGithubLink">Card Github Link</label>
-          <input
-            type="url"
-            id="cardGithubLink"
-            value={cardGithubLink}
-            onChange={(e) => setCardGithubLink(e.target.value)}
-            required
-            autoComplete="off"
-          />
-          <button type="submit">{editId ? "Update" : "Submit"}</button>
+        <label htmlFor="cardTitle">Card title</label>
+        <input
+          type="text"
+          id="cardTitle"
+          value={cardTitle}
+          onChange={(e) => setCardTitle(e.target.value)}
+          required
+          autoComplete="off"
+        />
+        <label htmlFor="cardDescription">Card Description</label>
+        <textarea
+          id="cardDescription"
+          value={cardDescription}
+          onChange={(e) => setCardDescription(e.target.value)}
+          required
+          autoComplete="off"
+        />
+        <label htmlFor="cardCoverName">Card Covername</label>
+        <input
+          type="text"
+          id="cardCoverName"
+          value={cardCoverName}
+          onChange={(e) => setCardCoverName(e.target.value)}
+          required
+          autoComplete="off"
+        />
+</div>
+        
+
+        <label htmlFor="cardTags">Card Tags</label>
+        <input
+          type="text"
+          id="cardTags"
+          value={cardTags}
+          onChange={(e) => setCardTags(e.target.value)}
+          autoComplete="off"
+        />
+        <button type="button" onClick={handleTagAdd}>Add Tag</button>
+
+        <div>
+          <h4>Tags:</h4>
+          <ul>
+            {tagsArray.map((tag, index) => (
+              <li key={index}>{tag}</li>
+            ))}
+          </ul>
         </div>
 
-        <div className="adminProjectTopRight">
-          <label htmlFor="cardTags">Card Tags</label>
-          <input
-            type="text"
-            id="cardTags"
-            value={cardTags}
-            onChange={(e) => setCardTags(e.target.value)}
-            autoComplete="off"
-          />
-          <button type="button" onClick={handleTagAdd}>
-            Add Tag
-          </button>
+        
 
-          <div>
-            <h4>Tags:</h4>
-            <ul>
-              {tagsArray.map((tag, index) => (
-                <li key={index}>{tag}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        <label htmlFor="cardGithubLink">Card Github Link</label>
+        <input
+          type="text"
+          id="cardGithubLink"
+          value={cardGithubLink}
+          onChange={(e) => setCardGithubLink(e.target.value)}
+          required
+          autoComplete="off"
+        />
+
+        <button type="submit">{editId ? "Update" : "Submit"}</button>
       </form>
 
       <div className="existingProjects">
@@ -191,19 +181,8 @@ function AdminProjects() {
                     <li key={index}>{tag}</li>
                   ))}
                 </ul>
-                <p>
-                  <a
-                    href={project.cardGithubLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub />
-                  </a>
-                </p>
-                <button onClick={() => handleEdit(project.id)}>
-                  Edit
-                  <FaEdit />
-                </button>
+                <p><a href={project.cardGithubLink} target="_blank" rel="noopener noreferrer">Github Link: {project.cardGithubLink}</a></p>
+                <button onClick={() => handleEdit(project.id)}>Edit<FaEdit /></button>
                 <button onClick={() => handleDelete(project.id)}>Delete</button>
               </li>
             ))}

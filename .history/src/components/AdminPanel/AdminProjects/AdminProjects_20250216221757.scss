@@ -149,25 +149,23 @@
 
         ul {
           list-style-type: none;
+          padding: 0;
           display: flex;
           flex-wrap: wrap;
-          padding: 0;
-          gap: 5px;
+          gap: 1px;
           li {
             border-radius: 12px;
-            font-size: 12px;
+            padding: 5px;
+            margin: 5px;
+            font-size: 15px;
             color: #ccc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 80px;
           }
         }
         p a {
-
+          color: #007bff;
           text-decoration: none;
-          font-size: 1.5rem;
+          max-width: 20px;
+          font-size: 12px;
           &:hover {
             text-decoration: underline;
           }
