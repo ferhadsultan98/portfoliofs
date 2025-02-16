@@ -1,0 +1,22 @@
+.admin-content {
+  position: absolute;
+  top: 8vh;
+  right: 1vh;
+  width: 85%;
+  min-height: 80vh;
+  color: white;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border: 1px solid #5a1d60b0;
+  .adminContentHeader{
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.321), #5a1d60b0);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    h1{
+      text-align: center;
+      padd
+    }
+  }
+}
