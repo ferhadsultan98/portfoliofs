@@ -1,0 +1,37 @@
+.experiencesContainer {
+  width: 100%;
+  .experienceItem {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 3vw;
+
+    .experiencesLeftSide {
+      border: 1px solid #5a1d60;
+      border-radius: 50%;
+      padding: 40px;
+        &:hover img{
+            filter: contrast(200%);
+        }
+      img {
+        width: 8vw;
+        filter: contrast(20%);
+        transition: 0.3s;
+      }
+    }
+    .experiencesRightSide {
+      border: 2px solid #5a1d60;
+      border-radius: 15px;
+      width: 45vw;
+      color: #ccc;
+      transition: 0.3s;
+      line-height: 25px;
+      padding: 30px 15px;
+        &
+      .experiencesRightSideTopSection {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+}

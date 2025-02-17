@@ -1,0 +1,12 @@
+.experiencesContainer{
+    display: flex;
+    color: white;
+    width: 100%;
+    .experiencesLeftSide{
+        font-size: 1.7rem;
+    }
+    .experiencesRightSide{
+        border: 2px solid red;
+        width: 40vw;
+    }
+}

@@ -1,0 +1,32 @@
+.experiencesContainer {
+  width: 100%;
+  .experienceItem {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 3vw;
+    &:hover .experiencesLeftSide i{
+        filter: contrast(200%);
+    }
+    .experiencesLeftSide {
+      border: 1px solid red;
+      border-radius: 50%;
+      padding: 15px;
+
+     
+      i {
+        font-size: 8.7rem;
+        display: flex;
+        filter: contrast(20%);
+        transition: 0.3s;
+      }
+    }
+    .experiencesRightSide {
+      border: 2px solid red;
+      width: 40vw;
+      transition: 0.3s;
+      line-height: 25px;
+      experiencesRightSideTopSection
+    }
+  }
+}
