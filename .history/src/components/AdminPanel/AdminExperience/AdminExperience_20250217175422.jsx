@@ -178,8 +178,6 @@ const AdminExperience = () => {
               name="description"
               value={editFormData.description}
               onChange={handleInputChange}
-              autoComplete="off"
-              required
             />
           </div>
           <div className="editInputGroup">

@@ -7,6 +7,8 @@ import {
   remove,
   update,
 } from "../../../firebase/Firebase";
+import { LuCalendarDays } from "react-icons/lu";
+import { MdLocationOn } from "react-icons/md";
 import axios from "axios"; 
 import './AdminExperience.scss'
 
@@ -127,7 +129,7 @@ const AdminExperience = () => {
         );
         setExperiences(updatedExperiences);
         setEditing(null);
-        setImage(null); 
+        setImage(null); // Reset image state
       })
       .catch((error) => {
         console.error("Update failed: ", error);
@@ -146,8 +148,6 @@ const AdminExperience = () => {
               name="company"
               value={editFormData.company}
               onChange={handleInputChange}
-              autoComplete="off"
-              required
             />
           </div>
           <div className="editInputGroup">
@@ -157,8 +157,6 @@ const AdminExperience = () => {
               name="year"
               value={editFormData.year}
               onChange={handleInputChange}
-              autoComplete="off"
-              required
             />
           </div>
           <div className="editInputGroup">
@@ -168,8 +166,6 @@ const AdminExperience = () => {
               name="location"
               value={editFormData.location}
               onChange={handleInputChange}
-              autoComplete="off"
-              required
             />
           </div>
           <div className="editInputGroup">
@@ -178,8 +174,6 @@ const AdminExperience = () => {
               name="description"
               value={editFormData.description}
               onChange={handleInputChange}
-              autoComplete="off"
-              required
             />
           </div>
           <div className="editInputGroup">
@@ -206,13 +200,15 @@ const AdminExperience = () => {
             </div>
             <div className="experienceCardRight">
               <div className="experienceCardHeader">
-                <p>{experience.company}</p>
+                <h4>{experience.company}</h4>
                 <p className="year">
+                  <LuCalendarDays />
                   {experience.year}
                 </p>
               </div>
               <div className="experienceCardBody">
                 <p className="location">
+                  <MdLocationOn />
                   {experience.location}
                 </p>
                 <p className="description">{experience.description}</p>

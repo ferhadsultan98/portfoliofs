@@ -35,7 +35,6 @@ button{
       .editInputGroup {
         display: flex;
         flex-direction: column;
-        gap: 5px;
         input {
           padding: 15px;
           font-size: 1.1rem;
@@ -75,30 +74,17 @@ button{
   }
   .adminExperienceCards{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 2vw;
     h3{
       text-align: center;
     }
     .experienceCard{
       border: 2px solid #5a1d60;
-      border-radius: 15px;
       padding: 10px;
-      display: flex;
-      width: 25vw;
-      gap: 2vw;
       .experienceCardLeft{
-        width: 8vw;
+        width: 10vw;
         img{
           width: 100%;
         }
-      }
-      .experienceCardRight{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        line-height: 25px;
       }
     }
   }

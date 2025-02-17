@@ -44,7 +44,7 @@ export default function Experience() {
                 {experience.year}
               </p>
             </div>
-            <hr style={{ margin: "15px 0", borderColor: '#cccccc62' }} />
+            <hr style={{ margin: "15px 0", color: '#cccccc62' }} />
             <div className="experiencesRightSideBottomSection">
               <p className="location">
                 <MdLocationOn />
