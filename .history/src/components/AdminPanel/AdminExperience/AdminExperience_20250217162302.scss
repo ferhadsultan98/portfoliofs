@@ -1,0 +1,11 @@
+.adminExperienceContainer {
+  border: 2px solid red;
+  max-height: 82vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  .adminExperienceEditSection{
+    border: 2px solid red;
+  }
+}
