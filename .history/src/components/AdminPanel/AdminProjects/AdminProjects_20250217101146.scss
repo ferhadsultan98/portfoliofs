@@ -1,0 +1,210 @@
+.adminProjectContainer {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 82vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  h3 {
+    text-align: center;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+
+  form {
+    display: flex;
+    width: 100%;
+    gap: 15px;
+    margin: 0 auto;
+
+    label {
+      font-size: 16px;
+      color: #ccc;
+      margin: 5px 0;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      background: none;
+      outline: none;
+      transition: 0.3s;
+      color: #ccc;
+      width: 35vw;
+
+      &:focus {
+        box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+      }
+    }
+    textarea{
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      background: none;
+      width: 100%;
+      height: 12vh;
+      resize: vertical;
+      color: #f2f2f2;
+      padding: 10px;
+      font-size: 14px;
+      outline: none;
+      transition: 0.3s;
+      &:focus {
+        box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+      }
+    }
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background: none;
+      border: none;
+      border-radius: 15px;
+      transition: 0.5s;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: #5a1d60;
+      }
+      i
+      &[type="button"] {
+        background: none;
+        border: 1px solid #5a1d60;
+        transition: 0.5s;
+        border-radius: 15px;
+
+        &:hover {
+          box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+        }
+      }
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      h4 {
+        font-size: 16px;
+        color: #ccc;
+      }
+
+      ul {
+        padding-left: 20px;
+        list-style-type: none;
+
+        li {
+          font-size: 14px;
+          color: #ccc;
+        }
+      }
+    }
+  }
+
+  .existingProjects {
+    h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #ccc;
+      color: transparent;
+      margin: 15px 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1vw;
+      li {
+        background: none;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease-in-out;
+        width: 50%;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h4 {
+          font-size: 1.5rem;
+          margin-bottom: 10px;
+        }
+
+        p {
+          font-size: 1rem;
+          margin-bottom: 15px;
+        }
+
+        ul {
+          list-style-type: none;
+          display: flex;
+          flex-wrap: wrap;
+          padding: 0;
+          gap: 5px;
+          li {
+            border-radius: 12px;
+            font-size: 12px;
+            color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 80px;
+          }
+        }
+        p a {
+
+          text-decoration: none;
+          font-size: 1.5rem;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        button {
+          background: none;
+          color: #fff;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-right: 10px;
+
+          &:hover {
+            color: #5a1d60;
+          }
+          i{
+            display: flex;
+            font-size: 1.7rem;
+          }
+        }
+      }
+    }
+
+    p {
+      font-size: 1.3rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .adminProjectContainer {
+      padding: 15px;
+    }
+
+    form {
+      max-width: 100%;
+    }
+  }
+}
