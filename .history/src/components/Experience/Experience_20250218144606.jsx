@@ -1,0 +1,71 @@
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
+import { database,ref, get  } from "../../firebase/Firebase"; 
+import FSLogo from "../../assets/FS Light.png"; 
+import { LuCalendarDays } from "react-icons/lu";
+import { MdLocationOn } from "react-icons/md";
+import "./Experience.scss";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+export default function Experience() {
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+
+    const experiencesRef = ref(database, "experiences");
+    get(experiencesRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const experienceList = Object.keys(data).map((key) => ({
+            id: key,
+            ...data[key],
+          }));
+          setExperiences(experienceList);
+        } else {
+          console.log("No data available");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching experiences:", error);
+      });
+  }, []);
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+    });
+  }, [])
+  return (
+    <div className="experiencesContainer" id="experience">
+        <h1>Experience</h1>
+        <hr className="experience-separator" />
+      {experiences.map((experience) => (
+        <div className="experienceItem" key={experience.id}>
+          <div className="experiencesLeftSide" data-aos="fade-right" data-aos-delay="40" data-aos-delay={(index + 1) * 10}>
+            {
+            <img src={experience.companyLogo || FSLogo} alt="CompanyLogo" />
+          }
+          </div>
+          <div className="experiencesRightSide" data-aos="fade-left" data-aos-delay="70">
+            <div className="experiencesRightSideTopSection">
+              <h2 className="company">{experience.company}</h2>
+              <p className="year">
+                <LuCalendarDays />
+                {experience.year}
+              </p>
+            </div>
+            <hr style={{ margin: "15px 0", borderColor: '#cccccc62' }} />
+            <div className="experiencesRightSideBottomSection">
+              <p className="location">
+                <MdLocationOn />
+                {experience.location}
+              </p>
+              <p className="description">{experience.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

@@ -1,0 +1,106 @@
+.adminExperienceContainer {
+  border: 2px solid red;
+  max-height: 82vh;
+  padding: 15px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+button{
+  padding: 15px;
+  color: white;
+  border: 1px solid #5a1d60;
+  background: none;
+  border-radius: 15px;
+  margin-left: 5px;
+  transition: 0.3s;
+  cursor: pointer;
+  &:hover{
+    background-color: #5a1d60;
+  }
+}
+  .adminExperienceEditSection {
+    border-bottom: 2px solid #ccc;
+    padding: 10px 0;
+    h3 {
+      text-align: center;
+    }
+    .editForm {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2vw;
+      .editInputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        
+        input {
+          padding: 15px;
+          font-size: 1.1rem;
+          background: none;
+          border: 1px solid #5a1d60;
+          border-radius: 15px;
+          color: white;
+          outline: none;
+          &:focus {
+            box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+          }
+        }
+        input[type="file"]{
+          width: 6.9vw;
+          font-size: 1rem;
+          padding: 15px 12px;
+          border: none;
+
+        }
+        textarea{
+          padding: 15px;
+          font-size: 1.1rem;
+          background: none;
+          border: 1px solid #5a1d60;
+          border-radius: 15px;
+          color: white;
+          resize: none;
+          width: 20vw;
+          height: 150px;
+          outline: none;
+          &:focus {
+            box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+          }
+        }
+      }
+    }
+  }
+  .adminExperienceCards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2vw;
+    h3{
+      text-align: center;
+    }
+    .experienceCard{
+      border: 2px solid #5a1d60;
+      border-radius: 15px;
+      padding: 10px;
+      display: flex;
+      width: 25vw;
+      gap: 2vw;
+      .experienceCardLeft{
+        width: 8vw;
+        img{
+          width: 100%;
+        }
+      }
+      .experienceCardRight{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 25px;
+      }
+    }
+  }
+}

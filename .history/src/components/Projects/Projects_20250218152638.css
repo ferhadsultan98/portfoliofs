@@ -1,0 +1,245 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.ProjeContainer h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.project-separator {
+  border: 1px solid #ccc;
+  width: 10%;
+  margin: 5vh auto;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+  place-items: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 260px;
+  height: 300px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  position: relative;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  transition: 0.5s;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+  background-image: url(../../assets/backGround.webp);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 9;
+}
+.backCard {
+  position: absolute;
+  width: 260px;
+  height: 300px;
+  transform: scale(1);
+  z-index: -4;
+  background-color: aqua;
+  display: none;
+}
+.card:hover {
+  border: 2px solid gray;
+  box-shadow: 1px 4px 12px #ccc;
+  backdrop-filter: blur(4px);
+  transform: translateY(-15px);
+}
+
+.card-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.card-main h1 {
+  font-size: 1.5rem;
+  transition: 0.5s;
+  color: white;
+  display: flex;
+  justify-content: center;
+  max-width: 200px;
+}
+
+.card:hover .card-main h1 {
+  transform: scale(0);
+}
+
+.card-hover {
+  transition: 450ms ease;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background: none;
+  gap: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  overflow-y: auto;
+  height: 100%;
+  padding: 1rem;
+  transform: scale(1.5);
+  color: white;
+}
+.card-hover::-webkit-scrollbar {
+  width: 5px;
+}
+.card-hover a {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+  transition: 0.5s;
+}
+
+.card-hover a:hover {
+  color: gray;
+  filter: drop-shadow(2px 4px 12px white);
+  border-radius: 30px;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  outline: 1px solid white;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  transition: 250ms ease;
+}
+
+.tag:hover {
+  background: white;
+  color: black;
+}
+
+.card:hover .card-hover {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 300px;
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  animation: modalOpen 0.5s ease-out forwards;
+}
+.modal .close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+  color: white;
+}
+.modal .close-btn:hover {
+  color: red;
+}
+.modal.open {
+  opacity: 1;
+  pointer-events: all;
+  backdrop-filter: blur(4px);
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 999;
+}
+
+.modal-content {
+  padding: 40px;
+  border-radius: 15px;
+  z-index: 1001;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  animation: modalContentOpen 0.5s ease-out forwards;
+  position: relative;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@keyframes modalOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes modalContentOpen {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modal.closing {
+  animation: modalClose 0.5s ease-in forwards;
+}
+
+@keyframes modalClose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

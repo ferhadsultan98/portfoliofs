@@ -1,0 +1,13 @@
+
+.adminPanelContainer {
+  height: 100vh;
+  background: linear-gradient(to bottom, black, #5a1d60);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .mainFlex {
+    width: 100%;
+    height: 93vh;
+    display: flex;
+  }
+}
