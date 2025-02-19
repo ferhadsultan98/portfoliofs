@@ -1,0 +1,123 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 11;
+  .chatWindow {
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    width: 20vw;
+    border: 1px solid #5a1d60;
+    .chatHeader {
+      width: 100%;
+      height: 30px;
+      background: none;
+      border: 1px solid #5a1d60;
+      padding: 0;
+      margin: 0;
+      .chatCloseIcon {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+    hr {
+      margin: 0 auto;
+      height: 1px;
+      border-color: #5a1d605b;
+      width: 95%;
+    }
+    .chatMessages {
+      flex-grow: 1;
+      padding: 10px;
+      height: 35vh;
+      overflow-y: auto;
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+      .chatMessage {
+        margin: 10px 0;
+        padding: 10px;
+        max-width: 80%;
+
+        border-radius: 10px;
+        word-wrap: break-word;
+
+        &.user {
+          background-color: #5a1d60;
+          color: white;
+          align-self: flex-end;
+        }
+      }
+    }
+
+    .chatInputContainer {
+      overflow: hidden;
+      display: flex;
+      padding: 10px;
+      .chatInput {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        margin-right: 10px;
+        outline: none;
+        transition: 0.5s;
+        background: none;
+        color: white;
+      }
+
+      .chatSendButton {
+        background: none;
+        color: #5a1d60;
+        border-radius: 15px;
+
+        cursor: pointer;
+        border: 1px solid #5a1d60;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        i {
+          font-size: 1.7rem;
+          display: flex;
+          color: #ccc;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+  }
+  .showChatButton {
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 1px solid #5a1d60;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    i {
+      font-size: 2.5rem;
+      color: #5a1d60;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .chatContainer {
+    max-width: 100%;
+  }
+}

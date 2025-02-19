@@ -1,0 +1,89 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f4f4f4;
+
+  border-radius: 8px;
+  overflow: hidden;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  .chatHeader{
+    width: 100%;
+    height: 30px;
+    background-color: #5a1d60;
+    padding: 0;
+    margin: 0;
+  }
+  .chatMessages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+
+    .chatMessage {
+      margin: 10px 0;
+      padding: 10px;
+      max-width: 80%;
+      border-radius: 10px;
+      word-wrap: break-word;
+
+      &.user {
+        background-color: #5a1d60;
+        color: white;
+        align-self: flex-end;
+      }
+    }
+  }
+
+  .chatInputContainer {
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+
+    .chatInput {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      margin-right: 10px;
+      outline: none;
+      transition: 0.5s;
+      color: white;
+      &:focus{
+        background-color: #5a1d60;
+      }
+    }
+
+    .chatSendButton {
+      padding: 10px 20px;
+      background: none;
+      border: 1px solid #5a1d60;
+      color: #5a1d60;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  }
+  .chatCloseIcon {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    i{
+    font-size: 1.5rem;
+    }
+  }
+  .showChatButton{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px)  {
+  .chatContainer {
+    max-width: 100%;
+  }
+}
