@@ -1,0 +1,20 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, set, get, child, remove, update } from "firebase/database";
+import { getAuth } from "firebase/auth"; // Authentication modülünü import et
+
+const firebaseConfig = {
+  apiKey: "AIzaSyClvkg7Z7jUunCBwguHlYOnF_hTVEV9N4Y",
+  authDomain: "adminpanel-faff5.firebaseapp.com",
+  databaseURL: "https://adminpanel-faff5-default-rtdb.firebaseio.com",
+  projectId: "adminpanel-faff5",
+  storageBucket: "adminpanel-faff5.firebasestorage.app",
+  messagingSenderId: "1005832850429",
+  appId: "1:1005832850429:web:95499881b194c43a7e6794"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const database = getDatabase(app);
+const auth = getAuth(app); // Authentication'ı başlat
+
+export { getDatabase, database, ref, set, get, child, remove, update, auth }; // auth'ı da export et

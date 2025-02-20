@@ -52,7 +52,8 @@ function Chat() {
             {messages.map((message, index) => (
               <div key={index} className={`chatMessage ${message.sender}`}>
                 <p>
-                  <FaRegUser style={{ display: "flex" }} />
+                  <i></i>
+                  <FaRegUser />
                   {message.text}
                 </p>
                 <i>{formattedDate}</i>

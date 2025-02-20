@@ -3,7 +3,6 @@ import "./Chat.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
 import { IoIosSend } from "react-icons/io";
-import { FaRegUser } from "react-icons/fa6";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -12,9 +11,9 @@ function Chat() {
 
   const current = new Date();
   const day = current.getDate();
-  const month = current.getMonth() + 1;
+  const month = current.getMonth() + 1; 
   const year = current.getFullYear();
-
+  
   const formattedDate = `${day}-${month}-${year}`;
 
   const handleSubmit = (e) => {
@@ -51,10 +50,7 @@ function Chat() {
           <div className="chatMessages">
             {messages.map((message, index) => (
               <div key={index} className={`chatMessage ${message.sender}`}>
-                <p>
-                  <FaRegUser style={{ display: "flex" }} />
-                  {message.text}
-                </p>
+                <p>{message.text}</p>
                 <i>{formattedDate}</i>
               </div>
             ))}

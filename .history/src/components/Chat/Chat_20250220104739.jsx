@@ -3,7 +3,6 @@ import "./Chat.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
 import { IoIosSend } from "react-icons/io";
-import { FaRegUser } from "react-icons/fa6";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -52,7 +51,7 @@ function Chat() {
             {messages.map((message, index) => (
               <div key={index} className={`chatMessage ${message.sender}`}>
                 <p>
-                  <FaRegUser style={{ display: "flex" }} />
+                  <FaRegUser />
                   {message.text}
                 </p>
                 <i>{formattedDate}</i>
