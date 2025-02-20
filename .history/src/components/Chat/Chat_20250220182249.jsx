@@ -3,108 +3,49 @@ import "./Chat.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
 import { IoIosSend } from "react-icons/io";
-import { database, ref, set, get, child } from "../../firebase/Firebase";
-import { v4 as uuidv4 } from "uuid"; // Add uuid for unique IDs
-
+import { database, ref, set, get, child } from "../../firebase/Firebase"; 
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isChatVisible, setIsChatVisible] = useState(false);
-  const [userInfo, setUserInfo] = useState({ name: "", email: "", userId: null });
+  const [userInfo, setUserInfo] = useState({ name: "", email: "" });
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [lastAuthTime, setLastAuthTime] = useState(null);
 
   const current = new Date();
   const formattedDate = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}`;
 
-  // Check authentication status and reset after 10 minutes
   useEffect(() => {
     const checkUser = async () => {
       const savedEmail = localStorage.getItem("chatEmail");
-      const authTime = localStorage.getItem("authTime");
-      
-      if (savedEmail && authTime) {
-        const timeDiff = (Date.now() - parseInt(authTime)) / 60000; // Convert to minutes
-        
-        if (timeDiff < 10) { // Less than 10 minutes
-          const emailKey = savedEmail.replace(".", ",");
-          const dbRef = ref(database);
-          const snapshot = await get(child(dbRef, `users/${emailKey}`));
-          
-          if (snapshot.exists()) {
-            const userData = snapshot.val();
-            setUserInfo({ 
-              name: userData.name, 
-              email: savedEmail, 
-              userId: userData.userId 
-            });
-            setMessages(userData.messages || []);
-            setIsAuthenticated(true);
-            setLastAuthTime(parseInt(authTime));
-          }
-        } else {
-          localStorage.removeItem("chatEmail");
-          localStorage.removeItem("authTime");
+      if (savedEmail) {
+        const dbRef = ref(database);
+        const snapshot = await get(child(dbRef, `users/${savedEmail.replace(".", ",")}`));
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          setUserInfo({ name: userData.name, email: savedEmail });
+          setMessages(userData.messages || []);
+          setIsAuthenticated(true);
         }
       }
     };
-
     checkUser();
-
-    // Check every minute if 10 minutes have passed
-    const interval = setInterval(() => {
-      if (lastAuthTime && (Date.now() - lastAuthTime) / 60000 >= 10) {
-        setIsAuthenticated(false);
-        setMessages([]);
-        setUserInfo({ name: "", email: "", userId: null });
-        localStorage.removeItem("chatEmail");
-        localStorage.removeItem("authTime");
-        setLastAuthTime(null);
-      }
-    }, 60000); // Check every minute
-
-    return () => clearInterval(interval);
-  }, [lastAuthTime]);
+  }, []);
 
   const handleUserSubmit = async (e) => {
     e.preventDefault();
     if (userInfo.name.trim() && userInfo.email.trim()) {
-      const emailKey = userInfo.email.replace(".", ",");
-      const dbRef = ref(database);
-      const snapshot = await get(child(dbRef, `users/${emailKey}`));
-      
-      let userId;
-      let initialMessages = [];
-
-      if (snapshot.exists()) {
-        // Existing user
-        const userData = snapshot.val();
-        userId = userData.userId;
-        initialMessages = userData.messages || [];
-      } else {
-        // New user
-        userId = uuidv4();
-        initialMessages = [{
-          text: "Xoş gəldiniz! Yeni bir söhbətə başlamaq üçün mesaj yazın.",
-          sender: "system",
-          timestamp: formattedDate
-        }];
-      }
-
+      const emailKey = userInfo.email.replace(".", ","); // Replace . with , because Firebase doesn't allow . in keys
       const userRef = ref(database, `users/${emailKey}`);
+      
+      // Save user info and initial empty messages array
       await set(userRef, {
         name: userInfo.name,
         email: userInfo.email,
-        userId: userId,
-        messages: initialMessages
+        messages: []
       });
-
-      setUserInfo({ ...userInfo, userId });
-      setMessages(initialMessages);
-      setIsAuthenticated(true);
-      setLastAuthTime(Date.now());
+      
       localStorage.setItem("chatEmail", userInfo.email);
-      localStorage.setItem("authTime", Date.now());
+      setIsAuthenticated(true);
     }
   };
 
@@ -114,20 +55,19 @@ function Chat() {
       const newMessage = {
         text: input,
         sender: "user",
-        timestamp: formattedDate,
-        userId: userInfo.userId
+        timestamp: formattedDate
       };
       
       const updatedMessages = [...messages, newMessage];
       setMessages(updatedMessages);
       setInput("");
 
+      // Save to Firebase
       const emailKey = userInfo.email.replace(".", ",");
       const userRef = ref(database, `users/${emailKey}`);
       await set(userRef, {
         name: userInfo.name,
         email: userInfo.email,
-        userId: userInfo.userId,
         messages: updatedMessages
       });
     }

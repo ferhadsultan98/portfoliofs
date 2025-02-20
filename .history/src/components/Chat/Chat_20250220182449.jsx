@@ -3,7 +3,7 @@ import "./Chat.scss";
 import { IoIosArrowDown } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
 import { IoIosSend } from "react-icons/io";
-import { database, ref, set, get, child } from "../../firebase/Firebase";
+import { database, ref, set, get, child } from "../../";
 import { v4 as uuidv4 } from "uuid"; // Add uuid for unique IDs
 
 function Chat() {
