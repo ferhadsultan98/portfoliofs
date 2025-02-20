@@ -56,16 +56,17 @@ function App() {
               path="/login"
               element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />}
             />
-            <Route
-              path="/admin"
-              element={
-                isAuthenticated ? (
-                  <AdminLayout />
-                ) : (
-                  <Navigate to="/login" />
-                )
-              }
-            >
+           <Route
+  path="/admin"
+  element={
+    isAuthenticated ? (
+      <Navigate to="/admin/admin-main" />
+    ) : (
+      <Navigate to="/login" />
+    )
+  }
+/>
+
               <Route path="admin-main" element={<AdminMain />} />
               <Route path="admin-projects" element={<AdminProjects />} />
               <Route path="admin-about" element={<AdminAbout />} />
