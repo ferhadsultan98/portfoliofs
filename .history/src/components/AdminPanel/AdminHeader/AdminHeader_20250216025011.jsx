@@ -8,27 +8,25 @@ const AdminHeader = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // sessionStorage'dan çıkış bilgisini sil
-    sessionStorage.removeItem('isAuthenticated');
-
     setTimeout(() => {
-      toast.success('Çıxış etdiniz.', { position: "top-right" });
-    }, 300); 
-
-    // Login sayfasına yönlendir
-    navigate('/login'); 
+      
+      setTimeout(() => {
+        toast.success('Çıxış etdiniz.', { position: "top-right" });
+      }, 300); 
+      navigate('/login'); 
+    }, 0); 
   };
   
 
   return (
     <div className="adminHeader">
       <div>
-        <a href="/admin/admin-main">
-          <p>Farhad</p>
-          <i>
-            <PiDevToLogo />
-          </i>
-        </a>
+      <a href="/admin/admin-main">
+        <p>Farhad</p>
+        <i>
+          <PiDevToLogo />
+        </i>
+      </a>
       </div>
       <FiLogOut 
         className="logoutBtn" 
