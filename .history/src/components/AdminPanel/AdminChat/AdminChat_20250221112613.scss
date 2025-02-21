@@ -1,0 +1,17 @@
+.adminChatContainer {
+  width: 100%;
+  max-height: 82vh;
+  overflow-y: scroll;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+padding: ;
+  .AdminChatLeft {
+    width: 20%;
+    background-color: blue;
+  }
+  .AdminChatRight {
+    width: 80%;
+    background-color: yellow;
+  }
+}
