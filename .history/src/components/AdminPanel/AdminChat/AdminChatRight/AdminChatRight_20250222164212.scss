@@ -1,0 +1,38 @@
+.adminChatRightContainer{
+    width: 80%;
+    height: 72vh;
+    overflow-y: scroll;
+    padding: 5px;
+    .adminChatRightHeader{
+        width: 100%;
+        background-color: green;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .adminChatRightMessages {
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+        gap: 5px;
+        .message {
+          &.userMessage {
+            align-self: flex-end; 
+            background: none;
+            padding: 10px;
+            border: 1px solid #5a1d60;
+            border-radius: 15px;
+            color: #ccc
+          }
+      
+          &.systemMessage {
+            align-self: flex-start; 
+            background: none;
+            border: 1px solid #5a1d60;
+            border-radius: 15px;
+            color: #ccc;
+            padding: 10px;
+          }
+        }
+      }
+}

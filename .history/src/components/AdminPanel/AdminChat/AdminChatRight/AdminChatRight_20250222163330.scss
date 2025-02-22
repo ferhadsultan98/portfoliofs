@@ -1,0 +1,89 @@
+.adminChatRightContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 20px;
+    background-color: #f0f2f5; // WhatsApp tarzı açık gri arka plan
+    overflow-y: auto;
+  
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+  
+    .adminChatRightMessages {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      overflow-y: auto;
+  
+      .message {
+        padding: 10px 15px;
+        border-radius: 10px;
+        margin: 5px 0;
+        word-wrap: break-word;
+  
+        &.messageBubble {
+          max-width: 70%; // Mesaj baloncukları için maksimum genişlik
+        }
+  
+        &.userMessage {
+          align-self: flex-end;
+          background-color: #dcf8c6; // WhatsApp tarzı yeşil (kullanıcı mesajı)
+          color: #000;
+  
+          p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+          }
+        }
+  
+        &.systemMessage {
+          align-self: flex-start;
+          background-color: #ffffff; // Beyaz arka plan (sistem mesajı)
+          color: #000;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  
+          p {
+            margin: 0;
+            font-size: 1rem;
+            line-height: 1.4;
+          }
+        }
+      }
+  
+      p {
+        text-align: center;
+        color: #888;
+        font-size: 1rem;
+        margin-top: 20px;
+      }
+    }
+  
+    > p { // Kullanıcı seçilmediğinde görünen mesaj
+      text-align: center;
+      color: #888;
+      font-size: 1.2rem;
+      margin-top: 20px;
+    }
+  }
+  
+  // Scrollbar özelleştirme (opsiyonel)
+  .adminChatRightMessages::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .adminChatRightMessages::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+  }
+  
+  .adminChatRightMessages::-webkit-scrollbar-track {
+    background: transparent;
+  }

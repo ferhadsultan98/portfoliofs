@@ -1,0 +1,28 @@
+.adminChatLeftContainer {
+  background-color: gray;
+  padding: 5px;
+  width: 20%;
+  height: 100%;
+  height: 72vh;
+  overflow-y: scroll;
+  .chatPersonList{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    .chatPerson{
+        display: flex;
+        padding: 10px;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        &:hover{
+            
+        }
+        p{
+            font-size: 13px;
+        }
+    }
+  }
+}

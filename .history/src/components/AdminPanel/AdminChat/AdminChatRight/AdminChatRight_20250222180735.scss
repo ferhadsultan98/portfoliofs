@@ -1,0 +1,264 @@
+.adminChatRightContainer {
+    max-width: 80%;
+    width: 80%;
+    height: 72vh; // Masaüstü için sabit yükseklik
+    padding: 5px;
+    border-left: 1px solid #5a1d60;
+    position: relative;
+    display: flex; // Flex düzeni ekledim
+    flex-direction: column; // Dikey düzen
+  
+    .adminChatRightHeader {
+      background: none;
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      color: #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .adminChatRightMessages {
+      display: flex;
+      flex-direction: column;
+      padding-top: 10px;
+      padding-right: 10px;
+      gap: 5px;
+      flex-grow: 1; // Mesaj alanı esnek şekilde büyür
+      overflow-y: scroll;
+      // Sabit yükseklik yerine esnek büyüme kullanıyoruz
+  
+      .message {
+        &.userMessage {
+          align-self: flex-end;
+          background: none;
+          padding: 10px;
+          border: 1px solid #5a1d60;
+          border-radius: 15px;
+          color: #ccc;
+          text-wrap: wrap;
+          max-width: 70%; // Responsive için max-width eklendi
+        }
+  
+        &.systemMessage {
+          align-self: flex-start;
+          background: none;
+          border: 1px solid #5a1d60;
+          border-radius: 15px;
+          color: #ccc;
+          padding: 10px;
+          text-wrap: wrap;
+          max-width: 70%; // Responsive için max-width güncellendi (25vw yerine)
+        }
+      }
+    }
+  
+    .adminRightChatInputContainer {
+      background: none;
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      color: #ccc;
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+  
+      input {
+        background: none;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        padding: 5px 10px;
+        color: #ccc;
+        outline: none;
+        width: 100%;
+        transition: 0.5s;
+        font-size: 1rem;
+  
+        &:focus {
+          box-shadow: #5a1d60 0px 5px 15px;
+        }
+      }
+  
+      button {
+        background: none;
+        color: #ccc;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        transition: 0.5s;
+        padding: 5px;
+        min-width: 40px; // Butonun küçülmesini engelle
+  
+        &:hover {
+          color: #5a1d60;
+        }
+  
+        i {
+          font-size: 1.7rem;
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  
+    p {
+      background: none;
+      padding: 10px;
+      border: 1px solid #5a1d60;
+      border-radius: 15px;
+      color: #ccc;
+      text-align: center;
+    }
+  }
+  
+  /* Responsive Tasarım */
+  @media (max-width: 1024px) { // Tablet ve küçük ekranlar
+    .adminChatRightContainer {
+      width: 90%; // Genişlik biraz artar
+      height: 65vh; // Yükseklik azalır
+      max-width: none; // Maksimum genişlik sınırı kalkar
+  
+      .adminChatRightMessages {
+        height: auto; // Sabit yükseklik yerine esnek
+        padding-right: 5px; // Sağ padding azalır
+  
+        .message {
+          &.userMessage,
+          &.systemMessage {
+            max-width: 80%; // Mesajlar daha geniş olabilir
+          }
+        }
+      }
+  
+      .adminRightChatInputContainer {
+        padding: 8px; // Padding azalır
+        input {
+          font-size: 0.9rem; // Yazı boyutu küçülür
+        }
+        button {
+          padding: 3px; // Buton padding azalır
+          i {
+            font-size: 1.5rem; // İkon boyutu küçülür
+          }
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 768px) { // Mobil cihazlar
+    .adminChatRightContainer {
+      width: 100%; // Tam genişlik
+      height: 80vh; // Daha fazla ekran alanı kaplar
+      padding: 3px; // Padding azalır
+      border-left: none; // Sol border kalkar (isteğe bağlı)
+  
+      .adminChatRightHeader {
+        padding: 8px;
+        font-size: 0.9rem; // Başlık küçülür
+      }
+  
+      .adminChatRightMessages {
+        padding-top: 5px;
+        padding-right: 0; // Sağ padding kalkar
+        gap: 3px; // Mesajlar arası boşluk azalır
+  
+        .message {
+          &.userMessage,
+          &.systemMessage {
+            max-width: 85%; // Mesajlar daha geniş
+            padding: 8px; // İç padding azalır
+            font-size: 0.85rem; // Yazı boyutu küçülür
+          }
+        }
+      }
+  
+      .adminRightChatInputContainer {
+        padding: 5px;
+        gap: 5px; // Boşluk azalır
+  
+        input {
+          font-size: 0.85rem; // Yazı boyutu küçülür
+          padding: 4px 8px; // Padding azalır
+        }
+  
+        button {
+          min-width: 35px; // Buton boyutu küçülür
+          padding: 2px;
+          i {
+            font-size: 1.3rem; // İkon boyutu küçülür
+          }
+        }
+      }
+  
+      p {
+        font-size: 0.9rem; // Yazı boyutu küçülür
+        padding: 8px;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) { // Çok küçük ekranlar (ör. telefonlar)
+    .adminChatRightContainer {
+      height: 90vh; // Maksimum ekran kullanımı
+      padding: 2px;
+  
+      .adminChatRightHeader {
+        padding: 5px;
+        font-size: 0.8rem;
+      }
+  
+      .adminChatRightMessages {
+        padding-top: 3px;
+        gap: 2px;
+  
+        .message {
+          &.userMessage,
+          &.systemMessage {
+            max-width: 90%; // Mesajlar neredeyse tam genişlik
+            padding: 6px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+  
+      .adminRightChatInputContainer {
+        padding: 3px;
+        gap: 3px;
+  
+        input {
+          font-size: 0.8rem;
+          padding: 3px 6px;
+        }
+  
+        button {
+          min-width: 30px;
+          padding: 1px;
+          i {
+            font-size: 1.2rem;
+          }
+        }
+      }
+  
+      p {
+        font-size: 0.8rem;
+        padding: 6px;
+      }
+    }
+  }
+  
+  /* Scrollbar özelleştirme (responsive için değişmez) */
+  .adminChatRightMessages::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  .adminChatRightMessages::-webkit-scrollbar-thumb {
+    background-color: #5a1d60;
+    border-radius: 10px;
+  }
+  
+  .adminChatRightMessages::-webkit-scrollbar-track {
+    background: transparent;
+  }

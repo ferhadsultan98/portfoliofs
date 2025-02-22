@@ -1,0 +1,21 @@
+.adminChatRightContainer{
+    width: 80%;
+    height: 72vh;
+    overflow-y: scroll;
+    background-color: red;
+    padding: 15px;
+    .adminChatRightMessages {
+        display: flex;
+        flex-direction: column;
+      
+        .message {
+          &.userMessage {
+            align-self: flex-end; // Kullanıcı mesajları sağa
+          }
+      
+          &.systemMessage {
+            align-self: flex-start; // Sistem mesajları sola
+          }
+        }
+      }
+}

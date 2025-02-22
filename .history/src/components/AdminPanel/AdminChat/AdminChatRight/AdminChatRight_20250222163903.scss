@@ -1,0 +1,32 @@
+.adminChatRightContainer{
+    width: 80%;
+    height: 72vh;
+    overflow-y: scroll;
+    padding: 5px;
+    .adminChatRightHeader{
+        width: 100%;
+        background-color: green;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+    .adminChatRightMessages {
+        display: flex;
+        flex-direction: column;
+        padding-top: ;
+        gap: 5px;
+        .message {
+          &.userMessage {
+            align-self: flex-end; 
+            background-color: gray;
+            padding: 5px;
+          }
+      
+          &.systemMessage {
+            align-self: flex-start; 
+            background-color: aqua;
+            padding: 5px;
+          }
+        }
+      }
+}

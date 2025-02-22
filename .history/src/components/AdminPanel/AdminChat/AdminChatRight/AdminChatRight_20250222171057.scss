@@ -1,0 +1,87 @@
+.adminChatRightContainer {
+  width: 80%;
+  height: 72vh;
+  overflow-y: scroll;
+  padding: 5px;
+  border-left: 1px solid #5a1d60;
+
+  .adminChatRightHeader {
+    background: none;
+    border: 1px solid #5a1d60;
+    border-radius: 15px;
+    color: #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  .adminChatRightMessages {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    gap: 5px;
+    margin-top: 60px;
+    .message {
+      &.userMessage {
+        align-self: flex-end;
+        background: none;
+        padding: 10px;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        color: #ccc;
+      }
+
+      &.systemMessage {
+        align-self: flex-start;
+        background: none;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        color: #ccc;
+        padding: 10px;
+      }
+    }
+  }
+  .adminRightChatInputContainer{
+    background: none;
+    border: 1px solid #5a1d60;
+    border-radius: 15px;
+    color: #ccc;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    input{
+        background: none;
+        border: 1px solid #5a1d60;
+        border-radius: 15px;
+        padding: 5px 10px;
+        color: #ccc;
+        outline: none;
+        width: 100%;
+        transition: 0.5s;
+        font-size: 1rem;
+        &:focus{
+            box-shadow: #5a1d60 0px 5px 15px;
+        }
+    }
+    button{
+        background: none;
+        color: #ccc;
+        border: none;
+        border-radius: 15px;
+        transition: 0.5s;
+        &:hover{
+            color: #5a1d60;
+        }
+        i{
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+  }
+  p {
+    background: none;
+    padding: 10px;
+    border: 1px solid #5a1d60;
+    border-radius: 15px;
+    color: #ccc;
+  }
+}
