@@ -141,12 +141,8 @@
   .loginContainer {
     flex-direction: column;
   }
-  .loginCard input {
-    width: 100%;
-    padding: 12px 35px;
-  }
   .logHeader{
-    width: 100%;
+    width: 90vw;
   }
   .loginLeftSection {
     display: none;

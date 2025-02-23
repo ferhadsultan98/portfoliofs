@@ -55,6 +55,7 @@
   align-items: center;
   margin-bottom: 20px;
   position: relative;
+  width: 100%;
 }
 
 .loginCard input {
@@ -140,10 +141,6 @@
 @media (max-width: 768px) {
   .loginContainer {
     flex-direction: column;
-  }
-  .loginCard input {
-    width: 100%;
-    padding: 12px 35px;
   }
   .logHeader{
     width: 100%;
