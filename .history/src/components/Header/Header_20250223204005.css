@@ -1,0 +1,154 @@
+/* Header.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 65%;
+  margin: 0 auto;
+  height: 60px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.43);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+}
+
+.header--visible {
+  transform: translateY(0);
+}
+
+.header__logo {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  color: transparent;
+  -webkit-text-stroke: 1px #ccc;
+}
+
+.logo-text span {
+  margin-right: 8px;
+}
+
+.logo-icon {
+  color: #5a1d60;
+  font-size: 52px;
+}
+
+.header__logo:hover .logo-text {
+  color: #5a1d60;
+  -webkit-text-stroke-color: transparent;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  margin: 0;
+  background: #6a1372;
+  backdrop-filter: blur(10px);
+  border: 1px solid #5a1d60;
+  border-radius: 0 0 30px 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.nav-menu--active {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nav-menu li {
+  list-style: none;
+  text-align: center;
+  position: relative;
+}
+
+.nav-menu a {
+  display: block;
+  padding: 10px;
+  color: #f2f2f2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: white;
+}
+
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ccc;
+  transition: width 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-menu li:hover::after {
+  width: 80%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .header {
+    max-width: 100%;
+  }
+  
+  .nav-menu--active {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__logo {
+    width: 45vw;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    font-size: 28px;
+  }
+  
+  .header__logo {
+    width: 25vw;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .header {
+    font-size: 30px;
+  }
+  
+  .header__logo {
+    width: 25vw;
+  }
+}

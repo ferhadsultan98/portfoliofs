@@ -16,7 +16,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 2;
   background-size: 100% 100%;
   border-bottom: 1px solid rgba(128, 128, 128, 0.43);
   backdrop-filter: blur(10px);
@@ -24,19 +24,18 @@ header {
 
 .header.hidden {
   transform: translateY(-100%);
-  transition: 1s;
+  transition: transform 1s;
 }
 
 .header.visible {
   transform: translateY(0);
-  transition: 1s;
+  transition: transform 1s;
 }
 
 header .logo {
   display: flex;
   transition: 0.5s;
   cursor: pointer;
-  display: flex;
 }
 
 #myLogo {
@@ -47,34 +46,51 @@ header .logo {
   display: flex;
   align-items: center;
 }
+
 #myLogo:hover {
   border-right-width: 7px;
   -webkit-text-stroke-color: none;
 }
-#myLogo:hover i{
+
+#myLogo:hover i {
   color: white;
   background: transparent;
 }
 
 header .hamburger-react {
-  display: none;
-}
-
-header .hamburger-react-menuicon {
-  display: none;
+  display: block;
 }
 
 header .nav-links {
-  display: flex;
-  gap: 60px;
-  transition: 0.5s ease;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  gap: 20px;
+  transition: max-height 0.5s ease, opacity 0.5s ease, backdrop-filter 0.5s ease; /* Include backdrop-filter in transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0px); /* No blur when inactive */
+  background: rgba(0, 0, 0, 0); /* Fully transparent when inactive */
 }
 
 header .nav-links.active {
   display: flex;
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 1vh;
+  z-index: 9999;
+  border: 1px solid #ccc;
   border-radius: 30px;
-  transition: 1s;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /* Blur when active */
+  background: rgba(0, 0, 0, 0.4); /* Semi-transparent black to make blur visible */
+  text-align: center;
+  transition: max-height 0.5s ease, opacity 0.5s ease, backdrop-filter 0.5s ease, background 0.5s ease; /* Smooth transitions */
 }
 
 header ul li {
@@ -87,6 +103,7 @@ header ul li a {
   color: #ccc;
   transition: 0.5s;
   padding: 10px 0;
+  display: block;
 }
 
 header ul li a:hover {
@@ -105,10 +122,10 @@ header ul li::after {
   transition: width 0.3s ease, left 0.3s ease;
   transform: translateX(-50%);
 }
+
 header ul li:hover::after {
   width: 100%;
 }
-
 
 @media (max-width: 1024px) {
   header {
@@ -118,38 +135,12 @@ header ul li:hover::after {
     right: 0;
   }
 
-  header .hamburger-react {
-    display: block;
-  }
-
-  header .menu-toggle {
-    display: flex;
-  }
-
-  header .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    gap: 20px;
-    transition: 1s;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
   header .nav-links.active {
     display: flex;
     max-height: 400px;
     opacity: 1;
-    margin-top: 1vh;
-    z-index: 9999;
-    border: 1px solid #ccc;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), #5a1d60);
+    backdrop-filter: blur(10px); /* Ensure blur applies */
+    background: rgba(0, 0, 0, 0.4); /* Consistent semi-transparent background */
   }
 
   header .nav-links li {
@@ -162,11 +153,6 @@ header ul li:hover::after {
     color: white;
     border-radius: 30px;
   }
-
-  header .nav-links li a {
-    padding: 10px;
-    display: block;
-  }
 }
 
 @media (max-width: 1024px) and (min-width: 768px) {
@@ -176,10 +162,6 @@ header ul li:hover::after {
 
   header .logo {
     width: 25vw;
-  }
-
-  header .nav-links {
-    gap: 40px;
   }
 }
 
@@ -197,14 +179,10 @@ header ul li:hover::after {
   header .logo {
     width: 25vw;
   }
-
-  header .nav-links {
-    gap: 50px;
-  }
 }
 
 @media (min-width: 1441px) {
-  header .nav-links {
-    gap: 60px;
+  header .hamburger-react {
+    display: block;
   }
 }
