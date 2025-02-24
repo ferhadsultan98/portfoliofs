@@ -209,9 +209,8 @@ const Chat = () => {
   };
 
   const toggleChat = () => {
-    setIsChatVisible(!isChatVisible);  
+    setIsChatVisible(!isChatVisible);
   };
-  
 
   return (
     <div className="chatContainer">

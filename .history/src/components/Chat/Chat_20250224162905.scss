@@ -16,13 +16,14 @@
     border: 1px solid #5a1d60;
     transform: translateX(100%);
     opacity: 0;
-    visibility: hidden;  
     transition: all 0.4s ease-in-out; 
-    
+    &:not(.visible) {
+      display: none;
+    }
+  
     &.visible {
       transform: translateX(0);
       opacity: 1;
-      visibility: visible; 
     }
 
     .chatHeader {

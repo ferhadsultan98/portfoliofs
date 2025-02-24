@@ -1,0 +1,293 @@
+.off-day-request-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #1a1a3a;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+  
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  
+    .instructions {
+      font-size: 1rem;
+      color: #a0a0a0;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  
+    .request-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .calendar-section {
+        background: #2a2a4a;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
+        .calendar-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+  
+          span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e0e0e0;
+          }
+  
+          .navigation-button {
+            background: #4a4a7a;
+            border: none;
+            border-radius: 5px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+  
+            svg {
+              color: #ffffff;
+            }
+  
+            &:hover {
+              background: #5a5a9a;
+            }
+          }
+        }
+  
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 5px;
+  
+          .day-header {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #cccccc;
+            padding: 5px;
+            font-weight: 500;
+          }
+  
+          .day-cell {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            background: #3a3a5a;
+            color: #e0e0e0;
+  
+            &:hover {
+              background: #4a4a7a;
+              transform: scale(1.05);
+            }
+  
+            &.selected {
+              background: #00c2a8;
+              color: #ffffff;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+  
+      .time-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        label {
+          font-size: 1rem;
+          color: #a0a0a0;
+        }
+  
+        .time-picker {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+  
+          select {
+            padding: 8px 12px;
+            border: 1px solid #4a4a7a;
+            border-radius: 5px;
+            background: #2a2a4a;
+            color: #ffffff;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+  
+            &:focus {
+              outline: none;
+              border-color: #00c2a8;
+            }
+          }
+  
+          span {
+            color: #a0a0a0;
+          }
+        }
+      }
+  
+      .message-input {
+        padding: 15px;
+        border: 1px solid #4a4a7a;
+        border-radius: 10px;
+        background: #2a2a4a;
+        color: #ffffff;
+        font-size: 1rem;
+        resize: vertical;
+        min-height: 150px;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          outline: none;
+          border-color: #00c2a8;
+        }
+  
+        &::placeholder {
+          color: #a0a0a0;
+        }
+      }
+  
+      .send-button {
+        background: #00c2a8;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        align-self: flex-end;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: #00b39e;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(0, 194, 168, 0.4);
+        }
+      }
+    }
+  
+    // Responsive Tasarım
+    @media (max-width: 768px) {
+      margin: 20px;
+      padding: 20px;
+  
+      h1 {
+        font-size: 1.8rem;
+      }
+  
+      .instructions {
+        font-size: 0.9rem;
+      }
+  
+      .request-form {
+        .calendar-section {
+          .calendar-header {
+            span {
+              font-size: 1rem;
+            }
+          }
+  
+          .calendar-grid {
+            .day-header {
+              font-size: 0.8rem;
+            }
+  
+            .day-cell {
+              padding: 8px;
+              font-size: 0.9rem;
+            }
+          }
+        }
+  
+        .time-section {
+          label {
+            font-size: 0.9rem;
+          }
+  
+          .time-picker select {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+          }
+        }
+  
+        .message-input {
+          font-size: 0.9rem;
+          padding: 12px;
+          min-height: 120px;
+        }
+  
+        .send-button {
+          padding: 10px 25px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      margin: 10px;
+      padding: 15px;
+  
+      h1 {
+        font-size: 1.5rem;
+      }
+  
+      .instructions {
+        font-size: 0.8rem;
+      }
+  
+      .request-form {
+        .calendar-section {
+          padding: 15px;
+  
+          .calendar-grid {
+            .day-header {
+              font-size: 0.7rem;
+            }
+  
+            .day-cell {
+              padding: 6px;
+              font-size: 0.8rem;
+            }
+          }
+        }
+  
+        .time-section {
+          label {
+            font-size: 0.8rem;
+          }
+  
+          .time-picker select {
+            padding: 5px 8px;
+            font-size: 0.7rem;
+          }
+        }
+  
+        .message-input {
+          font-size: 0.8rem;
+          padding: 10px;
+          min-height: 100px;
+        }
+  
+        .send-button {
+          padding: 8px 20px;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }

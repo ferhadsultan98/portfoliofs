@@ -209,7 +209,7 @@ const Chat = () => {
   };
 
   const toggleChat = () => {
-    setIsChatVisible(!isChatVisible);  
+    setIsChatVisible(!isChatVisible);  // Toggle the state to trigger animation
   };
   
 

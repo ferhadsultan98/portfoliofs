@@ -1,0 +1,311 @@
+.off-day-request-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #0f172a;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+  
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  
+    .instructions {
+      font-size: 1rem;
+      color: #94a3b8;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+  
+    .request-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+  
+      .calendar-section {
+        background: #1e293b;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  
+        .calendar-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 15px;
+  
+          span {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #e2e8f0;
+          }
+  
+          .navigation-button {
+            background: #334155;
+            border: none;
+            border-radius: 5px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+  
+            svg {
+              color: #ffffff;
+            }
+  
+            &:hover {
+              background: #475569;
+            }
+          }
+        }
+  
+        .calendar-grid {
+          display: grid;
+          grid-template-columns: repeat(7, 1fr);
+          gap: 5px;
+  
+          .day-header {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            padding: 5px;
+            font-weight: 500;
+          }
+  
+          .day-cell {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid transparent;
+  
+            &:hover {
+              background: #334155;
+              transform: scale(1.05);
+            }
+  
+            &.selected {
+              background: #10b981;
+              color: #ffffff;
+              font-weight: 600;
+              border-color: #10b981;
+            }
+  
+            &.today {
+              border: 2px solid #10b981;
+              background: #1e293b;
+            }
+          }
+        }
+      }
+  
+      .time-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+  
+        label {
+          font-size: 1rem;
+          color: #94a3b8;
+        }
+  
+        .time-picker {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+  
+          .time-toggle {
+            display: flex;
+            gap: 5px;
+  
+            .time-button {
+              background: #1e293b;
+              border: 1px solid #334155;
+              border-radius: 5px;
+              padding: 8px 12px;
+              font-size: 0.9rem;
+              color: #e2e8f0;
+              cursor: pointer;
+              transition: all 0.3s ease;
+  
+              &:hover {
+                background: #334155;
+              }
+  
+              &.active {
+                background: #10b981;
+                border-color: #10b981;
+                color: #ffffff;
+              }
+            }
+          }
+  
+          span {
+            color: #94a3b8;
+          }
+        }
+      }
+  
+      .message-input {
+        padding: 15px;
+        border: 1px solid #334155;
+        border-radius: 10px;
+        background: #1e293b;
+        color: #e2e8f0;
+        font-size: 1rem;
+        resize: vertical;
+        min-height: 150px;
+        transition: border-color 0.3s ease;
+  
+        &:focus {
+          outline: none;
+          border-color: #10b981;
+        }
+  
+        &::placeholder {
+          color: #94a3b8;
+        }
+      }
+  
+      .send-button {
+        background: #10b981;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        align-self: flex-end;
+        transition: all 0.3s ease;
+  
+        &:hover {
+          background: #059669;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+      }
+    }
+  
+    // Responsive Tasarım
+    @media (max-width: 768px) {
+      margin: 20px;
+      padding: 20px;
+  
+      h1 {
+        font-size: 1.8rem;
+      }
+  
+      .instructions {
+        font-size: 0.9rem;
+      }
+  
+      .request-form {
+        .calendar-section {
+          .calendar-header {
+            span {
+              font-size: 1rem;
+            }
+          }
+  
+          .calendar-grid {
+            .day-header {
+              font-size: 0.8rem;
+            }
+  
+            .day-cell {
+              padding: 8px;
+              font-size: 0.9rem;
+            }
+          }
+        }
+  
+        .time-section {
+          label {
+            font-size: 0.9rem;
+          }
+  
+          .time-picker .time-toggle .time-button {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+          }
+        }
+  
+        .message-input {
+          font-size: 0.9rem;
+          padding: 12px;
+          min-height: 120px;
+        }
+  
+        .send-button {
+          padding: 10px 25px;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      margin: 10px;
+      padding: 15px;
+  
+      h1 {
+        font-size: 1.5rem;
+      }
+  
+      .instructions {
+        font-size: 0.8rem;
+      }
+  
+      .request-form {
+        .calendar-section {
+          padding: 15px;
+  
+          .calendar-grid {
+            .day-header {
+              font-size: 0.7rem;
+            }
+  
+            .day-cell {
+              padding: 6px;
+              font-size: 0.8rem;
+            }
+          }
+        }
+  
+        .time-section {
+          label {
+            font-size: 0.8rem;
+          }
+  
+          .time-picker .time-toggle .time-button {
+            padding: 5px 8px;
+            font-size: 0.7rem;
+          }
+        }
+  
+        .message-input {
+          font-size: 0.8rem;
+          padding: 10px;
+          min-height: 100px;
+        }
+  
+        .send-button {
+          padding: 8px 20px;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }

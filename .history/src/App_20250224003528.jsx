@@ -20,7 +20,6 @@ import AdminExperience from "./components/AdminPanel/AdminExperience/AdminExperi
 import Chat from "./components/Chat/Chat";
 import AdminChat from "./components/AdminPanel/AdminChat/AdminChat";
 
-
 function App() {
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -56,6 +55,7 @@ function App() {
               }
             />
             <Route path="*" element={<ErrorPage />} />
+            <Route path="/test" element={< />} />
             <Route
               path="/login"
               element={<AdminLogin setIsAuthenticated={setIsAuthenticated} />}

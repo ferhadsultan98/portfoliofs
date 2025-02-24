@@ -16,7 +16,7 @@
     border: 1px solid #5a1d60;
     transform: translateX(100%);
     opacity: 0;
-    visibility: hidden;  
+    visibility: hidden;  /* Hidden by default */
     transition: all 0.4s ease-in-out; 
     
     &.visible {

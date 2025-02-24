@@ -213,7 +213,7 @@
     padding: 20px;
     width: 60px;
     height: 60px;
-    border-radius: 50px;
+    border-radius: 50%;
     border: 1px solid #5a1d60;
     display: flex;
     justify-content: center;
@@ -221,28 +221,14 @@
     right: 10px;
     bottom: 10px;
     cursor: pointer;
-    animation: messageAnimation 1s infinite linear alternate;
-    -webkit-box-shadow: rgba(255, 255, 255, 0.11) 0px 1px 3px;
-    -moz-box-shadow: rgba(255, 255, 255, 0.11) 0px 1px 3px;
-    box-shadow: #ffffff1c 0 1px 2px;
+    animation: showButtonAnimation 1s infinite linear alternate;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.11);
     transition: transform 0.3s ease;
-
+  
     &:hover {
       transform: scale(1.1);
     }
-
-    @keyframes messageAnimation {
-      0% {
-        transform: scale(0.85);
-        border: 5px solid #773693;
-      }
-
-      to {
-        transform: scale(1);
-        border: 3px solid rgba(252, 252, 252, 0.2392156863);
-      }
-    }
-
+  
     i {
       font-size: 2.5rem;
       color: #5a1d60;
@@ -251,7 +237,19 @@
       align-items: center;
     }
   }
-}
+  
+  @keyframes showButtonAnimation {
+    0% {
+      transform: scale(1); /* Normal size */
+    }
+    50% {
+      transform: scale(0.5); /* Shrink */
+    }
+    100% {
+      transform: scale(1); /* Return to normal size */
+    }
+  }
+  
 
 @media (max-width: 768px) {
   .chatContainer {
