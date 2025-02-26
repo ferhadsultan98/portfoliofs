@@ -1,0 +1,108 @@
+.sideBar {
+  width: 15%;
+  position: fixed;
+  left: 0;
+  top: 57px;
+  height: 100%;
+  z-index: 9;
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding: 6px;
+
+    .active {
+      transform: translateX(15px);
+    }
+    .navlink {
+      transition: 0.5s;
+      &:hover {
+        transform: translateX(15px);
+      }
+      li {
+        list-style: none;
+        font-size: 1.5rem;
+        padding: 7px 15px;
+        font-weight: 600;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        border-radius: 15px;
+        transition: 0.5s;
+        border: 1px solid #5a1d60;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #f2f2f2;
+        color: transparent;
+        i {
+          color: #5a1d60;
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+/* Mobil için farklı sidebar toggle butonu */
+.sidebar-toggle {
+  display: none; // Desktopta gizli
+}
+
+@media (max-width: 768px) {
+  .sidebar-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%; // Vertikal olarak ortada
+    left: 10px; // Soldan biraz içeride
+    transform: translateY(-50%); // Tam ortalanması için
+    z-index: 100;
+    background: #5a1d60;
+    border: 2px solid #fff;
+    border-radius: 50%; // Yuvarlak tasarım
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    svg {
+      color: #fff;
+      font-size: 1.5rem; // İkon boyutu
+    }
+
+    &.open {
+      left: calc(80% - 50px); // Sidebar açıkken sağa kayar (sidebar genişliği %80)
+      background: #fff;
+      border-color: #5a1d60;
+      svg {
+        color: #5a1d60; // Açıkken ikon rengi değişir
+      }
+    }
+  }
+
+  .sideBar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    transition: left 0.3s ease;
+    z-index: 99;
+
+    &.mobile-open {
+      left: 0;
+    }
+
+    ul {
+      justify-content: flex-start; // Mobilde üstten başlasın
+      margin-top: 20px; // Üstten boşluk
+    }
+  }
+}
