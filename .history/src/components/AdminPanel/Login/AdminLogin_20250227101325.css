@@ -67,6 +67,7 @@
   font-size: 1.3rem;
   color: gray;
   background-color: #f2f2f2;
+  border-left: 3px solid #5a1d60;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
