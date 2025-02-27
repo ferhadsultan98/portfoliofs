@@ -138,75 +138,76 @@ const AdminChatLeft = ({ onUserSelect }) => {
   };
 
   return (
-    <div
-      className={`adminChatLeftContainer ${
-        isMenuOpen ? "chatLeftMobileOpen" : ""
-      }`}
-    >
-      <button
+
+
+      <div
+        className={`adminChatLeftContainer ${isMenuOpen ? "chatLeftMobileOpen" : ""}`}
+      >
+        <button
         className={`chatToggle ${isMenuOpen ? "open" : ""}`}
         onClick={toggleMenu}
       >
         <FaArrowCircleDown />
       </button>
-      <div className="adminChatLeftSearch">
-        <input
-          type="search"
-          value={nameSearch}
-          onChange={(e) => setNameSearch(e.target.value)}
-          placeholder="Search users..."
-        />
-      </div>
-      <div className="chatPersonList">
-        {filteredData.map((user, index) => (
-          <div
-            className="chatPerson"
-            key={index}
-            onClick={() => handleUserClick(user)}
-          >
-            <div className="chatPersonLeft">
+        <div className="adminChatLeftSearch">
+          <input
+            type="search"
+            value={nameSearch}
+            onChange={(e) => setNameSearch(e.target.value)}
+            placeholder="Search users..."
+          />
+         
+        </div>
+        <div className="chatPersonList">
+          {filteredData.map((user, index) => (
+            <div
+              className="chatPerson"
+              key={index}
+              onClick={() => handleUserClick(user)}
+            >
               <div className="chatUserProfileIcon">
                 <i>
-                  <FaCircleUser />
+                <FaCircleUser />
+
                 </i>
               </div>
-              <div className="chatUserProfileInfo">
+              <div className="chatPersonLeft">
                 <h4>{user.name}</h4>
                 <p>{user.email}</p>
               </div>
-            </div>
-            <div className="chatPersonRight">
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <div className="chatPersonStatus">
-                  <IoMailUnread
-                    color={
-                      user.lastMessageSender === "user" ? "red" : "#5a1d60"
-                    }
-                    fontSize="1.2rem"
-                  />
-                </div>
+              <div className="chatPersonRight">
                 <div
-                  className="deleteChatAdmin"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleDelete(user.email);
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "flex-end",
                   }}
                 >
-                  <MdDeleteOutline />
+                  <div className="chatPersonStatus">
+                    <IoMailUnread
+                      color={
+                        user.lastMessageSender === "user" ? "red" : "#5a1d60"
+                      }
+                      fontSize="1.2rem"
+                    />
+                  </div>
+                  <div
+                    className="deleteChatAdmin"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(user.email);
+                    }}
+                  >
+                    <MdDeleteOutline />
+                  </div>
                 </div>
+                <p>{formatDate(user.lastMessageTime)}</p>
               </div>
-              <p>{formatDate(user.lastMessageTime)}</p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+
   );
 };
 

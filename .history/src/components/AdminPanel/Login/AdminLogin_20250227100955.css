@@ -42,7 +42,6 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 6px;
   display: flex;
-  flex-direction: column;
 }
 .logHeader h1 {
   font-size: 6rem;
@@ -113,11 +112,11 @@
   background-color: #5a1d60;
   color: white;
   padding: 12px 15px;
+  margin-right: 45px;
   font-size: 1.2rem;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: flex-end;
 }
 
 #logIn:hover {
@@ -148,7 +147,6 @@
   }
   .logHeader{
     width: 100%;
-    border: 1px solid #5a1d60;
   }
   .loginLeftSection {
     display: none;

@@ -1,0 +1,345 @@
+.chatContainer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 11;
+  width: 90vw; /* Varsayılan olarak mobil için genişlik */
+  max-width: 100%;
+}
+
+.chatContainer p {
+  color: #ccc;
+}
+
+.chatWindow {
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  width: 100%; /* Mobil için tam genişlik */
+  border: 1px solid #5a1d60;
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  height: 80vh; /* Mobil için varsayılan yükseklik */
+}
+
+.chatWindow.visible {
+  transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.chatHeader {
+  width: 100%;
+  height: 40px;
+  background-color: #5a1d60;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.chatHeader .chatStatusIcon i {
+  color: green;
+  font-size: 12px;
+}
+
+.chatHeader .chatCloseIcon {
+  cursor: pointer;
+}
+
+.chatHeader .chatCloseIcon i {
+  font-size: 1.3rem;
+  transition: transform 0.3s ease;
+  color: gray;
+}
+
+.chatHeader .chatCloseIcon:hover i {
+  transform: rotate(180deg);
+}
+
+.userInfoForm {
+  backdrop-filter: blur(10px);
+  height: 30vh; /* Mobil için daha kısa */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+}
+
+.userInfoForm p {
+  color: #ccc;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.userInfoForm input {
+  padding: 10px;
+  width: 85%;
+  background: none;
+  border: 1px solid #5a1d60;
+  border-radius: 15px;
+  color: white;
+  outline: none;
+  transition: 0.5s ease;
+}
+
+.userInfoForm input:focus {
+  box-shadow: #5a1d60 0px 5px 15px;
+}
+
+.userInfoForm button {
+  padding: 8px;
+  background: none;
+  border-radius: 15px;
+  border: none;
+  color: #f2f2f2;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.userInfoForm button:hover {
+  color: #5a1d60;
+  transform: scale(1.2) rotate(-20deg);
+}
+
+.userInfoForm button i {
+  font-size: 2.5rem;
+}
+
+.chatMessages {
+  flex-grow: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 40vh; /* Mobil için varsayılan */
+}
+
+.chatMessages::-webkit-scrollbar-track {
+  background: none;
+}
+
+.chatMessages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.chatMessage {
+  margin: 8px 0;
+  padding: 8px;
+  max-width: 85%;
+  border-radius: 10px;
+  word-wrap: break-word;
+  font-size: 0.85rem;
+}
+
+.chatMessage p {
+  display: flex;
+  gap: 3px;
+  font-size: 0.8rem;
+}
+
+.chatMessage i {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.7rem;
+  color: gray;
+}
+
+.chatMessage.user {
+  align-self: flex-end;
+  background: none;
+  border: 1px solid #5a1d60;
+  color: black;
+  border-radius: 15px 0px 15px 15px;
+}
+
+.chatMessage.system {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid #5a1d60;
+  color: white;
+  border-radius: 0px 15px 15px 15px;
+}
+
+.chatInputContainer {
+  overflow: hidden;
+  display: flex;
+  padding: 8px;
+  width: 100%;
+  border-top: 1px solid #5a1d60;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background: #16011e;
+}
+
+.chatInputContainer .chatInput {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #5a1d60;
+  border-radius: 15px;
+  margin-right: 8px;
+  outline: none;
+  transition: 0.5s;
+  background: none;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.chatInputContainer .chatSendButton {
+  background: none;
+  color: #5a1d60;
+  border-radius: 15px;
+  cursor: pointer;
+  border: 1px solid #5a1d60;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chatInputContainer .chatSendButton i {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.showChatButton {
+  padding: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  border: 1px solid #5a1d60;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  animation: messageAnimation 1s infinite linear alternate;
+  box-shadow: #ffffff1c 0 1px 2px;
+  transition: transform 0.3s ease;
+}
+
+.showChatButton:hover {
+  transform: scale(1.1);
+}
+
+@keyframes messageAnimation {
+  0% {
+    transform: scale(0.85);
+    border: 4px solid #773693;
+  }
+  100% {
+    transform: scale(1);
+    border: 2px solid rgba(252, 252, 252, 0.24);
+  }
+}
+
+.showChatButton i {
+  font-size: 2rem;
+  color: #5a1d60;
+}
+
+/* Tablet (768px ve üstü) */
+@media (min-width: 768px) {
+  .chatContainer {
+    width: 50vw;
+    right: 15px;
+    bottom: 15px;
+  }
+
+  .chatWindow {
+    width: 40vw;
+    height: 70vh;
+  }
+
+  .userInfoForm {
+    height: 35vh;
+  }
+
+  .chatMessages {
+    height: 50vh;
+  }
+
+  .chatMessage {
+    font-size: 0.9rem;
+  }
+
+  .chatMessage p {
+    font-size: 0.85rem;
+  }
+
+  .chatMessage i {
+    font-size: 0.75rem;
+  }
+
+  .showChatButton {
+    width: 60px;
+    height: 60px;
+  }
+
+  .showChatButton i {
+    font-size: 2.5rem;
+  }
+}
+
+/* Laptop (992px ve üstü) */
+@media (min-width: 992px) {
+  .chatContainer {
+    width: 30vw;
+  }
+
+  .chatWindow {
+    width: 25vw;
+    height: 60vh;
+  }
+
+  .userInfoForm input {
+    padding: 12px 9px;
+  }
+
+  .chatMessages {
+    height: 45vh;
+  }
+
+  .chatMessage {
+    font-size: 1rem;
+  }
+
+  .chatInputContainer .chatInput {
+    padding: 10px;
+  }
+
+  .chatInputContainer .chatSendButton {
+    width: 40px;
+    height: 40px;
+  }
+
+  .chatInputContainer .chatSendButton i {
+    font-size: 1.7rem;
+  }
+}
+
+/* Büyük Ekranlar (1200px ve üstü) */
+@media (min-width: 1200px) {
+  .chatContainer {
+    width: 20vw;
+  }
+
+  .chatWindow {
+    width: 20vw;
+    height: 65vh;
+  }
+
+  .chatMessages {
+    height: 50vh;
+  }
+}

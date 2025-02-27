@@ -11,15 +11,15 @@ const AdminHeader = () => {
 
   const handleLogout = () => {
     confirmAlert({
-      title: "Confirm Logout",
-      message: "Are you sure you want to log out?",
+      title: "Confirm",
+      message: "Are you certain you want to do this?",
       buttons: [
         {
-          label: "Yes",
+          label: "Yes!",
           onClick: () => {
-            sessionStorage.removeItem("isAuthenticated");
-            toast.success("You have logged out.", {
-              position: "top-right",
+            handleDeleteChat(email);
+            toast.success("The process has been confirmed!", {
+              position: "top-center",
               style: {
                 background: "none",
                 border: "1px solid #5a1d60",
@@ -27,15 +27,12 @@ const AdminHeader = () => {
                 color: "#5a1d60",
               },
             });
-            setTimeout(() => {
-              navigate("/login");
-            }, 300);
           },
         },
         {
-          label: "No",
+          label: "No!",
           onClick: () =>
-            toast.error("Logout canceled.", {
+            toast.error("The process has been canceled.", {
               position: "top-center",
               style: {
                 background: "none",
@@ -47,6 +44,15 @@ const AdminHeader = () => {
         },
       ],
     });
+  };
+    sessionStorage.removeItem("isAuthenticated");
+
+    setTimeout(() => {
+      toast.success("Çıxış etdiniz.", { position: "top-right" });
+    }, 300);
+
+
+    navigate("/login");
   };
 
   return (

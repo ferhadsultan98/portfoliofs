@@ -11,14 +11,14 @@ const AdminHeader = () => {
 
   const handleLogout = () => {
     confirmAlert({
-      title: "Confirm Logout",
-      message: "Are you sure you want to log out?",
+      title: "Çıxışı Təsdiqləyin",
+      message: "Çıxış etmək istədiyinizə əminsiniz?",
       buttons: [
         {
-          label: "Yes",
+          label: "Bəli",
           onClick: () => {
             sessionStorage.removeItem("isAuthenticated");
-            toast.success("You have logged out.", {
+            toast.success("Çıxış etdiniz.", {
               position: "top-right",
               style: {
                 background: "none",
@@ -33,9 +33,9 @@ const AdminHeader = () => {
           },
         },
         {
-          label: "No",
+          label: "Xeyr",
           onClick: () =>
-            toast.error("Logout canceled.", {
+            toast.error("Çıxış ləğv edildi.", {
               position: "top-center",
               style: {
                 background: "none",
