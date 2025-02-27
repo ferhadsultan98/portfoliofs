@@ -1,0 +1,34 @@
+[2025-02-27 14:28:31] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:28:36] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:28:41] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:28:46] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:28:51] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:28:56] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:01] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:07] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:12] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:17] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:23] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:28] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:33] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:38] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:43] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:48] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:29:53] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 14:30:24] Hata: module 'win32ts' has no attribute 'WTS_SESSIONSTATE_LOCK'
+[2025-02-27 15:33:26] Durum: Kilitli, State: 4
+[2025-02-27 15:33:27] Durum: Kilitli, State: 4
+[2025-02-27 15:33:28] Durum: Kilitli, State: 4
+[2025-02-27 15:33:29] Durum: Kilitli, State: 4
+[2025-02-27 15:33:30] Durum: Kilitli, State: 4
+[2025-02-27 15:33:31] Durum: Kilitli, State: 4
+[2025-02-27 15:33:32] Durum: Kilitli, State: 4
+[2025-02-27 15:33:33] Durum: Kilitli, State: 4
+[2025-02-27 15:33:34] Durum: Kilitli, State: 4
+[2025-02-27 15:33:35] Durum: Kilitli, State: 4
+[2025-02-27 15:33:36] Durum: Kilitli, State: 4
+[2025-02-27 15:33:37] Durum: Kilitli, State: 4
+[2025-02-27 15:33:38] Durum: Kilitli, State: 4
+[2025-02-27 15:33:39] Durum: Kilitli, State: 4
+[2025-02-27 15:33:40] Durum: Kilitli, State: 4
+[2025-02-27 15:33:41] Durum: Kilitli, State: 4

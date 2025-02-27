@@ -105,13 +105,12 @@
         padding: 8px 9px;
         background: none;
         border-radius: 15px;
-        border: 1px solid #5a1d60;
+        border: none;
         color: #f2f2f2;
         transition: 0.5s ease;
         cursor: pointer;
         display: flex;
         align-items: center;
-        align-self: flex-end;
         font-size: 1.2rem;
 
         &:hover {
@@ -120,7 +119,6 @@
 
         i {
           font-size: 3rem;
-          display: flex;
         }
       }
     }

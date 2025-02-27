@@ -13,7 +13,7 @@ import {
 } from "../../firebase/Firebase";
 import { v4 as uuidv4 } from "uuid";
 import FSLogo from "../../assets/FS Light.png";
-import ChatNotificationAudio from "../../assets/song/notfctn.mp3";
+import ChatNotificatioAudio from "../../assets/song/notfctn.mp3";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -27,13 +27,11 @@ const Chat = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [lastAuthTime, setLastAuthTime] = useState(null);
   const [suggestedDomains, setSuggestedDomains] = useState([]);
-  const chatMessagesRef = useRef(null); // Auto-scroll için ref
-  const audioRef = useRef(new Audio(ChatNotificationAudio)); // Audio ref for notification sound
+  const chatMessagesRef = useRef(null);
+  const audioRef = useRef(new Audio(ChatNotificatioAudio));
 
   const current = new Date();
-  const formattedDate = `${current.getDate()}-${
-    current.getMonth() + 1
-  }-${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}`;
+  const formattedDate = `${current.getDate()}-${current.getMonth() + 1}-${current.getFullYear()} ${current.getHours()}:${current.getMinutes()}`;
 
   const formatTimestamp = (timestamp) => {
     let date;
@@ -42,9 +40,7 @@ const Chat = () => {
     } else {
       return timestamp;
     }
-    return `${date.getDate()}-${
-      date.getMonth() + 1
-    }-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
   };
 
   const handleNameChange = (e) => {
@@ -162,17 +158,7 @@ const Chat = () => {
     };
   }, [isAuthenticated, userInfo.email, lastAuthTime]);
 
-  // Play notification sound when a new system message arrives
   useEffect(() => {
-    if (messages.length > 0) {
-      const latestMessage = messages[messages.length - 1];
-      if (latestMessage.sender === "system") {
-        audioRef.current.play().catch((error) => {
-          console.log("Audio playback failed:", error);
-        });
-      }
-    }
-
     if (chatMessagesRef.current) {
       chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
     }
@@ -255,6 +241,16 @@ const Chat = () => {
 
   const toggleChat = () => {
     setIsChatVisible(!isChatVisible);
+    if (!isChatVisible) { // Chat açıldığında ses çal
+      audioRef.current
+        .play()
+        .then(() => {
+          console.log("Ses başarıyla çalındı");
+        })
+        .catch((error) => {
+          console.log("Ses çalma hatası:", error);
+        });
+    }
   };
 
   return (

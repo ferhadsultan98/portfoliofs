@@ -105,22 +105,18 @@
         padding: 8px 9px;
         background: none;
         border-radius: 15px;
-        border: 1px solid #5a1d60;
+        border: none;
         color: #f2f2f2;
         transition: 0.5s ease;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        align-self: flex-end;
-        font-size: 1.2rem;
 
         &:hover {
           color: #5a1d60;
+          transform: scale(1.2) rotate(-20deg);
         }
 
         i {
           font-size: 3rem;
-          display: flex;
         }
       }
     }
@@ -208,11 +204,12 @@
         color: #5a1d60;
         border-radius: 15px;
         cursor: pointer;
+        border: 1px solid #5a1d60;
         width: 40px;
         height: 40px;
         display: flex;
         justify-content: center;
-        
+
         i {
           font-size: 1.7rem;
           display: flex;
