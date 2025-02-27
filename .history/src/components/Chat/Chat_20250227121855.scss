@@ -16,13 +16,13 @@
     border: 1px solid #5a1d60;
     transform: translateX(100%);
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease-in-out;
-
+    visibility: hidden;  
+    transition: all 0.4s ease-in-out; 
+    
     &.visible {
       transform: translateX(0);
       opacity: 1;
-      visibility: visible;
+      visibility: visible; 
     }
 
     .chatHeader {
@@ -33,27 +33,23 @@
       margin: 0;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+   justify-content: spa;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
-      h3 {
+      h3{
         color: gray;
         display: flex;
         align-items: center;
-        strong {
+        strong{
           color: #ccc;
         }
       }
       .chatLogo {
+        border: 1px solid gray;
+        border-radius: 50%;
+        padding: 3px;
         display: flex;
-        align-items: center;
-        gap: 3px;
-        img {
-          width: 2vw;
-          border: 1px solid gray;
-          border-radius: 50%;
-          padding: 3px;
-        }
+        
       }
 
       .chatCloseIcon {
@@ -276,7 +272,7 @@
         justify-content: flex-start !important;
         padding-top: 10vh !important;
         input {
-          padding: 25px !important;
+          padding: 25px  !important;
           font-size: 1.1rem;
           width: 100% !important;
         }
@@ -294,8 +290,8 @@
       }
       .chatInputContainer {
         align-self: flex-end !important;
-        .chatSendButton {
-          i {
+        .chatSendButton{
+          i{
             font-size: 2.4rem !important;
           }
         }

@@ -12,6 +12,7 @@ import {
   onValue,
 } from "../../firebase/Firebase";
 import { v4 as uuidv4 } from "uuid";
+import { GrStatusGoodSmall } from "react-icons/gr";
 import FSLogo from "../../assets/FS Light.png";
 
 const Chat = () => {
@@ -258,12 +259,9 @@ const Chat = () => {
       <div className={`chatWindow ${isChatVisible ? "visible" : ""}`}>
         <div className="chatHeader">
           <div className="chatLogo">
-            <img src={FSLogo} alt="chatLogo"  />
-            <h3>
-              Chat <strong>BOT</strong>
-            </h3>
+            <img src={FSLogo} alt="" style={{width: '1.7vw'}}/>
           </div>
-
+          <h3>Chat <strong>BOT</strong></h3>
           <div className="chatCloseIcon" onClick={toggleChat}>
             <i>
               <CgClose />

@@ -73,7 +73,7 @@ const Chat = () => {
         );
       } else {
         const filteredDomains = allowedDomains
-          .filter((domain) => domain.startsWith(domainPart))
+          .filter((domain) => domain.startsWithdomainPart))
           .map((domain) => `${prefix}@${domain}`);
         setSuggestedDomains(filteredDomains);
       }

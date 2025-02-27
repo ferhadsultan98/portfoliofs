@@ -45,14 +45,14 @@
         }
       }
       .chatLogo {
+        
+   
         display: flex;
-        align-items: center;
-        gap: 3px;
-        img {
+        img{
           width: 2vw;
           border: 1px solid gray;
-          border-radius: 50%;
-          padding: 3px;
+        border-radius: 50%;
+        padding: 3px;
         }
       }
 

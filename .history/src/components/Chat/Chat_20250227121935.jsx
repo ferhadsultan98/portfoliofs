@@ -258,7 +258,7 @@ const Chat = () => {
       <div className={`chatWindow ${isChatVisible ? "visible" : ""}`}>
         <div className="chatHeader">
           <div className="chatLogo">
-            <img src={FSLogo} alt="chatLogo"  />
+            <img src={FSLogo} alt=""  />
             <h3>
               Chat <strong>BOT</strong>
             </h3>
