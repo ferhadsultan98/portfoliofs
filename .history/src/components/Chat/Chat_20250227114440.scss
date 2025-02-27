@@ -1,8 +1,9 @@
 .chatContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   position: fixed;
-  right: 1px;
+  right: 15px;
   bottom: 15px;
   z-index: 11;
   p {
