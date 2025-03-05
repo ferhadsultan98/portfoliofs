@@ -32,7 +32,7 @@
     gap: 6px;
     margin-top: 40px;
     overflow-y: auto;
- 
+    min-height: 100px;
     .chatPerson {
       display: flex;
       padding: 10px;
@@ -44,19 +44,19 @@
       color: #ccc;
       transition: 0.5s;
       cursor: pointer;
-      user-select: none; 
-
-      &:hover {
-        cursor: grab;
-      }
-
- 
-      &[draggable="true"] {
-        &.dragging {
-          opacity: 0.8;
-          background-color: #f0f0f0;
-        }
-      }
+      user-select: none; // Prevents text selection while dragging
+  
+  &:hover {
+    cursor: grab;
+  }
+  
+  // Optional: Add visual feedback when dragging
+  &[draggable=true] {
+    &.dragging {
+      opacity: 0.8;
+      background-color: #f0f0f0;
+    }
+  }
       .chatPersonLeft {
         display: flex;
         align-items: center;

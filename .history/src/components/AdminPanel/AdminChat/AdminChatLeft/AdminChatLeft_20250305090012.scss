@@ -50,7 +50,7 @@
         cursor: grab;
       }
 
- 
+      // Optional: Add visual feedback when dragging
       &[draggable="true"] {
         &.dragging {
           opacity: 0.8;
