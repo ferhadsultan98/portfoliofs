@@ -1,0 +1,84 @@
+.adminAbout {
+  padding: 20px;
+  width: 100%;
+  max-height: 82vh;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    line-height: 25px;
+    gap: 5px;
+  }
+  .adminAboutTopSide {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    .adminAboutTopRight{
+      .containerSocialLink{
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+  .flexInputButton{
+    display: flex;
+    align-items: center;
+  }
+  input {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #5a1d60;
+    border-radius: 15px;
+    font-size: 1rem;
+    background: none;
+    color: #ccc;
+    outline: none;
+    &:focus{
+      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    }
+  }
+  textarea {
+    margin: 10px 0;
+    width: 100%;
+    height: 150px;
+    font-size: 12px;
+    border: 1px solid #5a1d60;
+    border-radius: 15px;
+    color: #ccc;
+    background: none;
+    padding: 10px;
+    resize: vertical;
+  }
+  button {
+    padding: 10px 15px;
+    border: none;
+    background: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 15px;
+    margin: 5px 0;
+    width: 3vw;
+    font-size: 1.5rem;
+   transition: 0.3s;
+
+    &:hover  {
+      color: #5a1d60;
+      transform: scale(1.1);
+    }
+  }
+  .containerTagItem {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    .tag-item {
+      display: flex;
+      
+ 
+    }
+  }
+}

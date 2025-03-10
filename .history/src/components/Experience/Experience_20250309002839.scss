@@ -1,0 +1,161 @@
+// Genel değişkenler
+$primary-text: #333;
+$secondary-text: #666;
+$card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+$icon-color: #007bff;
+
+// Experiences bölümü
+.experiences {
+  padding: 5rem 2rem;
+  background: transparent; // Arka plan renksiz
+  text-align: center;
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $primary-text;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      content: '';
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(to right, #007bff, #00ddeb);
+      position: absolute;
+      bottom: -10px;
+      left: 25%;
+    }
+  }
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// Deneyim kartları
+.experience-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: $card-shadow;
+  transition: $transition;
+  gap: 1.5rem;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &__logo {
+    flex: 0 0 80px; // Logo için sabit genişlik
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    text-align: left;
+  }
+
+  &__company {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $primary-text;
+    margin-bottom: 0.5rem;
+  }
+
+  &__year {
+    font-size: 0.9rem;
+    color: $secondary-text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    svg {
+      color: $icon-color;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__location {
+    font-size: 0.9rem;
+    color: $secondary-text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    svg {
+      color: $icon-color;
+      font-size: 1.1rem;
+    }
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: $secondary-text;
+    line-height: 1.6;
+  }
+}
+
+// Responsive ayarlar
+@media (max-width: 768px) {
+  .experiences {
+    padding: 3rem 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+
+    &__logo {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    &__company {
+      font-size: 1.3rem;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experiences {
+    padding: 2rem 1rem;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .experience-card {
+    padding: 1rem;
+
+    &__logo {
+      width: 50px;
+    }
+  }
+}

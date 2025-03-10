@@ -1,0 +1,126 @@
+.Header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+  border-bottom: 1px solid #5a1d60;
+
+  &.hidden {
+    transform: translateX(-100%);
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative; /* Menü için relative pozisyon */
+  }
+
+  #myLogo {
+    font-size: 2rem;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #ccc;
+    color: transparent;
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger-menu {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2; 
+  }
+
+
+  .Navbar {
+    position: absolute;
+    top: 0;
+    right: 0; 
+    width: 0; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease-in-out; 
+    opacity: 0; 
+    z-index: 1;
+    overflow: hidden; /* İçerik taşmasını önlemek için */
+
+    &.open {
+      width: 50%; /* Açıldığında genişlik artar */
+      opacity: 1; /* Görünür hale gelir */
+      right: 60px; /* Hamburger butonunun soluna doğru açılır */
+    }
+
+    .NavbarList {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 100%;
+      padding: 0 20px;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+      font-size: 1.5rem;
+      color: #ccc;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* Telefon Modu */
+@media (max-width: 768px) {
+  .Header {
+    width: 90% !important;
+  }
+
+  .Navbar {
+    position: fixed !important;
+    top: 80px !important; 
+    right: -100% !important; 
+    width: 70% !important; 
+    height: calc(100vh - 80px) !important; 
+    background: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.5s ease-in-out !important; 
+    opacity: 0 !important; 
+    z-index: 1 !important;
+
+    &.open {
+      right: 0 !important; 
+      opacity: 1 !important; 
+    }
+  }
+
+  .NavbarList {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 20px !important;
+    height: 100% !important;
+    gap: 30px !important;
+  }
+
+  li {
+    font-size: 1.5rem !important;
+    color: #ccc !important;
+    margin-bottom: 20px !important;
+  }
+}

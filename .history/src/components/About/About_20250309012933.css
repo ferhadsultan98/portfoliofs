@@ -1,0 +1,184 @@
+.AboutSectionContainer {
+  padding: 3rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.AboutSectionContainer h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-separator {
+  width: 100px;
+  margin: 0 auto 2rem;
+  border: 1px solid #333;
+}
+
+.about-container {
+  display: flex;
+  justify-content: center;
+}
+
+.about-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
+}
+
+.about-content p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  background: #f0f0f0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.contact-info-container h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.CommonContact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-link p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ContactLinks {
+  margin-top: 1rem;
+}
+
+.SocialIcons {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.SocialIcons li {
+  position: relative;
+}
+
+.SocialIcons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.iconname {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  background: #333;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+}
+
+.SocialIcons li:hover .iconname {
+  display: block;
+}
+
+/* Social media colors */
+.facebook a { background: #3b5998; color: #fff; }
+.linkedin a { background: #0077b5; color: #fff; }
+.instagram a { background: #e4405f; color: #fff; }
+.github a { background: #333; color: #fff; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .AboutSectionContainer {
+    padding: 2rem 1rem;
+  }
+
+  .AboutSectionContainer h1 {
+    font-size: 2rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  .contact-info-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .SocialIcons {
+    gap: 0.8rem;
+  }
+
+  .SocialIcons a {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .AboutSectionContainer h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-card {
+    padding: 1rem;
+  }
+
+  .about-content p {
+    font-size: 0.9rem;
+  }
+
+  .contact-link p {
+    font-size: 0.9rem;
+  }
+
+  .SocialIcons a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .SocialIcons li svg {
+    font-size: 1.2em;
+  }
+}

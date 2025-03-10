@@ -1,0 +1,153 @@
+.experiences {
+  padding: 5rem 2rem;
+  background: transparent;
+  text-align: center;
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ccc;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+    margin-bottom: ;
+    border-bottom: 1px solid #ccc;
+    border-width: 2px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.experience-card {
+  display: flex;
+  background: transparent;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #5a1d60;
+  gap: 2rem;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &__logo {
+    flex: 0 0 120px;
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  }
+
+  &__content {
+    flex: 1;
+    text-align: left;
+  }
+
+  &__company {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+
+  &__meta {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__year {
+    font-size: 0.95rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+      color: #5a1d60;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__location {
+    font-size: 0.95rem;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    svg {
+      color: #5a1d60;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .experiences {
+    padding: 3rem 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+  }
+
+  .experience-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+
+    &__logo {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    &__company {
+      font-size: 1.5rem;
+    }
+
+    &__meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    &__description {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .experiences {
+    padding: 2rem 1rem;
+
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .experience-card {
+    padding: 1rem;
+
+    &__logo {
+      width: 60px;
+    }
+  }
+}

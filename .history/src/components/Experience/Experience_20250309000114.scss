@@ -1,0 +1,238 @@
+.experiences-section {
+  padding: 5rem 0;
+  background-color: transparent;
+  
+  .container {
+    max-width: 65%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    color: #333;
+  }
+  
+  .experience-separator {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4a6cf7, #9cabff);
+    border: none;
+    margin: 0 auto 3rem;
+    border-radius: 2px;
+  }
+  
+  .loading-experiences {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+
+  .timeline-container {
+    position: relative;
+    display: flex;
+    padding-left: 30px;
+    
+    .timeline-line {
+      position: absolute;
+      left: 0;
+      top: 20px;
+      bottom: 40px;
+      width: 4px;
+      background: linear-gradient(to bottom, #4a6cf7, #9cabff);
+      border-radius: 2px;
+      box-shadow: 0 0 10px rgba(74, 108, 247, 0.3);
+      
+      .timeline-dot {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: #4a6cf7;
+        border-radius: 50%;
+        left: -6px;
+        transform: translateX(0);
+        box-shadow: 0 0 0 4px rgba(74, 108, 247, 0.2);
+        z-index: 2;
+        transition: all 0.3s ease;
+        
+        &:nth-child(1) {
+          top: 0;
+        }
+        
+        @for $i from 2 through 10 {
+          &:nth-child(#{$i}) {
+            top: #{($i - 1) * 210}px;
+          }
+        }
+      }
+    }
+    
+    .experience-cards {
+      flex: 1;
+      
+      .experience-card {
+        position: relative;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        padding: 20px;
+        margin-bottom: 30px;
+        transition: all 0.3s ease;
+        border-left: 4px solid #4a6cf7;
+        
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          
+          &:before {
+            background-color: #9cabff;
+            width: 25px;
+          }
+        }
+        
+        &:before {
+          content: '';
+          position: absolute;
+          left: -30px;
+          top: 30px;
+          width: 20px;
+          height: 2px;
+          background-color: #4a6cf7;
+          transition: all 0.3s ease;
+        }
+        
+        .card-header {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+          
+          .logo-container {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+            
+            img {
+              width: 80%;
+              height: 80%;
+              object-fit: contain;
+            }
+          }
+          
+          .title-container {
+            flex: 1;
+            
+            .company {
+              font-size: 1.3rem;
+              margin-bottom: 0.5rem;
+              color: #333;
+              font-weight: 600;
+            }
+            
+            .meta-info {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1rem;
+              
+              .year, .location {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: 0.9rem;
+                color: #6c757d;
+                
+                .icon {
+                  color: #4a6cf7;
+                  font-size: 1rem;
+                }
+              }
+            }
+          }
+        }
+        
+        .card-body {
+          .description {
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+          }
+          
+          .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            
+            .skill-tag {
+              padding: 0.35rem 0.75rem;
+              background-color: rgba(74, 108, 247, 0.1);
+              color: #4a6cf7;
+              border-radius: 20px;
+              font-size: 0.8rem;
+              font-weight: 500;
+              transition: all 0.3s ease;
+              
+              &:hover {
+                background-color: rgba(74, 108, 247, 0.2);
+                transform: translateY(-2px);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Responsive düzenlemeler
+  @media (max-width: 992px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      max-width: 90%;
+    }
+    
+    .timeline-container {
+      padding-left: 20px;
+      
+      .timeline-line .timeline-dot {
+        width: 12px;
+        height: 12px;
+        left: -4px;
+      }
+      
+      .experience-card:before {
+        left: -20px;
+        width: 15px;
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .container {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+    
+    .card-header {
+      flex-direction: column;
+      
+      .logo-container {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,194 @@
+
+
+.experiences-section {
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    color: #333;
+  }
+  
+  .experience-separator {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4a6cf7, #9cabff);
+    border: none;
+    margin: 0 auto 3rem;
+    border-radius: 2px;
+  }
+  
+  .loading-experiences {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  .experiences-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+  
+  .experiences-tabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    
+    @media (min-width: 768px) {
+      flex-direction: column;
+      min-width: 280px;
+      border-right: 1px solid #e9ecef;
+      border-bottom: none;
+      overflow-x: hidden;
+      max-height: 600px;
+      overflow-y: auto;
+    }
+    
+    .tab {
+      padding: 1.25rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      
+      &:hover {
+        background-color: #edf2ff;
+      }
+      
+      &.active {
+        background-color: white;
+        border-bottom: 3px solid #4a6cf7;
+        
+        @media (min-width: 768px) {
+          border-bottom: none;
+          border-left: 3px solid #4a6cf7;
+        }
+      }
+      
+      .tab-logo {
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      
+      .tab-info {
+        h3 {
+          font-size: 1rem;
+          margin-bottom: 0.4rem;
+          color: #333;
+        }
+        
+        .year {
+          font-size: 0.875rem;
+          color: #6c757d;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          
+          .icon {
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+  
+  .experiences-content {
+    padding: 2rem;
+    flex-grow: 1;
+    
+    .experience-header {
+      margin-bottom: 1.5rem;
+      
+      .company {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        color: #333;
+      }
+      
+      .meta-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        
+        .year, .location {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 0.95rem;
+          color: #6c757d;
+          
+          .icon {
+            color: #4a6cf7;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+    
+    .experience-body {
+      .description {
+        line-height: 1.7;
+        color: #555;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+      }
+      
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        
+        .skill-tag {
+          padding: 0.35rem 0.75rem;
+          background-color: rgba(74, 108, 247, 0.1);
+          color: #4a6cf7;
+          border-radius: 4px;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            background-color: rgba(74, 108, 247, 0.2);
+          }
+        }
+      }
+    }
+  }
+}

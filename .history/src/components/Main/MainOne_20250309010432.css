@@ -1,0 +1,391 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  background: black;
+  background-size: 200% 200%;
+  animation: gradientAnim 5s ease infinite;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.backGround {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+}
+
+.CommonMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 65vw;
+  margin: 15vh auto;
+}
+
+.CommonMenu h1 {
+  color: white;
+}
+
+.CommonMenu .MainOne {
+  margin-bottom: 30vh;
+  height: 100%;
+  padding-top: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6vw;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CommonMenu .ProjectsSection {
+  height: 100%;
+  margin-bottom: 42vh;
+}
+
+.CommonMenu .AboutSection {
+  height: 100%;
+  margin-bottom: 25vh;
+}
+
+.CommonMenu .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.CommonMenu .left .hi {
+  display: flex;
+  gap: 5px;
+}
+
+@keyframes animations {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+.CommonMenu .hi h1 {
+  font-size: 30px;
+}
+
+.CommonMenu .frontend {
+  font-size: 50px;
+}
+
+.CommonMenu .frontend .up {
+  display: flex;
+  height: 90px;
+}
+
+.CommonMenu .frontend h1:first-child {
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #ccc;
+}
+
+.CommonMenu .left .info {
+  font-size: 26px;
+  color: gray;
+  max-width: 500px;
+}
+
+.CommonMenu .buttons {
+  display: flex;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+.CommonMenu .buttons button {
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.CommonMenu .buttons button span {
+  font-size: 1.5rem;
+}
+
+.CommonMenu .buttons .downloadButton {
+  background: transparent;
+  border: 1px solid #5a1d60;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  gap: 4px;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.CommonMenu .buttons .downloadButton:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
+.CommonMenu .ProjectButtonn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid rgb(221, 218, 218);
+  background: white;
+  font-weight: bold;
+  color: black;
+  transition: all 1.2s linear;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.CommonMenu .ProjectButtonn::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(to right, #6d4cff, black);
+  border-radius: 30%;
+  height: 96px;
+  width: 96px;
+  animation: spin infinite linear 1.8s;
+  animation-delay: 0;
+  bottom: -38px;
+  right: -112px;
+  transition: all 1.2s linear;
+  z-index: 0;
+}
+
+.CommonMenu .ProjectButtonn:hover {
+  color: #fff;
+  transition-duration: 1.2s;
+}
+
+.CommonMenu .ProjectButtonn:hover::after {
+  right: -60px;
+  bottom: -92px;
+  width: 256px;
+  height: 256px;
+}
+
+.CommonMenu .ProjectButtonn .ProjectButtonn-content {
+  position: relative;
+  z-index: 1;
+}
+
+.CommonMenu .right {
+  position: relative;
+  display: inline-block;
+}
+
+.CommonMenu .myphoto {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  border: 1px solid #5a1d60;
+  transition: 0.5s;
+  border-radius: 7px 200px 200px 7px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.CommonMenu .myphoto:hover {
+  border-radius: 7px 7px 200px 200px;
+  box-shadow: 0 0 5px #5a1d60, 0 0 10px #5a1d60, 0 0 15px #5a1d60,
+    0 0 20px #5a1d60, 0 0 30px #5a1d60, 0 0 40px #5a1d60;
+}
+
+.CommonMenu .myphoto img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  transition: 0.5s;
+  border-radius: 7px 200px 200px 7px;
+  user-drag: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
+}
+
+.CommonMenu .myphoto:hover img {
+  transform: scale(1.15) rotate(10deg);
+  filter: brightness(0.8) saturate(1.5) contrast(1.2);
+  border-radius: 7px 7px 200px 200px;
+}
+
+/* Modal Stilleri */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.modal-close-button:hover {
+  color: #5a1d60;
+}
+
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pdf-controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pdf-controls button {
+  padding: 5px 10px;
+  background: #5a1d60;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.pdf-controls button:hover {
+  background: #6d4cff;
+}
+
+.pdf-controls button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.pdf-controls p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .CommonMenu {
+    width: 100%;
+  }
+
+  .CommonMenu .MainOne {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .CommonMenu .left .info {
+    width: auto;
+  }
+
+  .CommonMenu .left {
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .CommonMenu {
+    width: 100%;
+  }
+
+  .CommonMenu .MainOne {
+    padding-top: 10vh;
+    justify-content: center;
+  }
+
+  .CommonMenu .downloadButton:hover .downloadbutton__icon {
+    width: 110px;
+  }
+
+  .CommonMenu .downloadButton .downloadbutton__text {
+    transform: translateX(4px);
+  }
+
+  .CommonMenu .frontend {
+    font-size: 32px;
+  }
+
+  .CommonMenu .frontend .up {
+    max-width: 100%;
+    display: flex;
+    height: 75px;
+  }
+
+  .CommonMenu .left .info {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .CommonMenu .buttons {
+    justify-content: space-between;
+  }
+
+  .CommonMenu .buttons button {
+    width: 40vw;
+  }
+
+  .CommonMenu .buttons button span {
+    font-size: 1rem;
+  }
+
+  .CommonMenu .left .info {
+    max-width: 360px;
+  }
+
+  .CommonMenu .right {
+    margin: 50px;
+  }
+}

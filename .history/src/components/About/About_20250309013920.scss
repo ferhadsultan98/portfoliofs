@@ -1,0 +1,349 @@
+.AboutSectionContainer {
+  transition: 1s;
+  padding-top: 2vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    color: #f0f0f0;
+  }
+
+  .about-separator {
+    border: 1px solid #ccc;
+    width: 8%;
+    margin: 10px auto;
+  }
+
+  .about-container {
+    margin: 0 auto;
+  }
+
+  .about-card {
+    display: flex;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 15px;
+    transition: 1s;
+    border: 1px solid rgba(255, 255, 255, 0.73);
+
+    &:hover {
+      box-shadow: rgba(255, 255, 255, 0.25) 0px 50px 100px -20px, rgba(255, 255, 255, 0.3) 0px 30px 60px -30px;
+    }
+  }
+
+  .about-content {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 15px;
+    text-wrap: wrap;
+    backdrop-filter: blur(3px);
+    width: 100%;
+  }
+
+  .about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .tag {
+    outline: 1px solid #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: background 250ms ease, color 250ms ease, transform 250ms ease;
+    font-size: 0.9rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background: #ffffff;
+      color: hsl(0, 0%, 2%);
+      transform: scale(1.02);
+    }
+  }
+
+  .contact-info-container {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+
+    h2 {
+      color: #f0f0f0;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #ffffff;
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        color: white;
+        text-decoration: none;
+        margin-left: 0.5rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .CommonContact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+
+      a {
+        text-decoration: none;
+      }
+
+      p {
+        display: flex;
+        gap: 5px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        i {
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .ContactLinks {
+      .SocialIcons {
+        display: flex;
+        list-style: none;
+        width: 100%;
+        padding-top: 40px;
+        font-family: "Poppins", sans-serif;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        a {
+          text-decoration: none;
+        }
+
+        .icon {
+          position: relative;
+          background: #ccc;
+          color: black;
+          border-radius: 50%;
+          margin: 10px;
+          width: 50px;
+          height: 50px;
+          font-weight: 400;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+          .iconname {
+            position: absolute;
+            top: 0;
+            font-size: 14px;
+            background: gray;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+          }
+
+          &:hover {
+            .iconname {
+              top: -45px;
+              opacity: 1;
+              visibility: visible;
+              pointer-events: auto;
+            }
+
+            span,
+            .iconname {
+              text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          &.facebook {
+            &:hover,
+            &:hover .iconname,
+            &:hover .iconname::before {
+              background: #1877f2;
+              color: #fff;
+            }
+          }
+
+          &.linkedin {
+            &:hover,
+            &:hover .iconname,
+            &:hover .iconname::before {
+              background: #1da1f2;
+              color: #fff;
+            }
+          }
+
+          &.instagram {
+            &:hover,
+            &:hover .iconname,
+            &:hover .iconname::before {
+              background: linear-gradient(45deg, #f58529, #f77737, #fd1d1d, #c13584, #833ab4);
+              color: #fff;
+            }
+          }
+
+          &.github {
+            &:hover,
+            &:hover .iconname,
+            &:hover .iconname::before {
+              background: black;
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .AboutSectionContainer {
+    padding: 15px !important;
+
+    h1 {
+      font-size: 2rem !important;
+    }
+
+    .about-separator {
+      width: 15% !important;
+    }
+
+    .contact-info-container {
+      .CommonContact {
+        gap: 20px !important;
+      }
+
+      .SocialIcons {
+        padding-top: 30px !important;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .AboutSectionContainer {
+    padding: 10px !important;
+
+    h1 {
+      font-size: 1.8rem !important;
+    }
+
+    .about-separator {
+      width: 20% !important;
+    }
+
+    .about-card {
+      margin: 10px !important;
+    }
+
+    .about-content {
+      padding: 15px !important;
+      font-size: 14px !important;
+    }
+
+    .contact-info-container {
+      padding: 1.5rem !important;
+
+      .CommonContact {
+        flex-direction: column !important;
+        gap: 10px !important;
+      }
+
+      .SocialIcons {
+        padding-top: 20px !important;
+        gap: 8px !important;
+
+        .icon {
+          color: black !important;
+
+          li {
+            font-size: 1rem !important;
+          }
+        }
+      }
+    }
+
+    .tag {
+      font-size: 0.8rem !important;
+      padding: 0.4rem 0.8rem !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .AboutSectionContainer {
+    h1 {
+      font-size: 1.5rem !important;
+    }
+
+    .about-separator {
+      width: 30% !important;
+    }
+
+    .about-content {
+      padding: 10px !important;
+      font-size: 13px !important;
+    }
+
+    .contact-info-container {
+      padding: 1rem !important;
+
+      .CommonContact {
+        p {
+          font-size: 0.9rem !important;
+        }
+      }
+
+      .SocialIcons {
+        padding-top: 15px !important;
+        gap: 5px !important;
+
+        .icon {
+          width: 40px !important;
+          height: 40px !important;
+
+          .iconname {
+            font-size: 12px !important;
+          }
+        }
+      }
+    }
+
+    .tag {
+      font-size: 0.7rem !important;
+      padding: 0.3rem 0.6rem !important;
+    }
+  }
+}
